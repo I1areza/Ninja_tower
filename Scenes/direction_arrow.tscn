@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://ba1uyfjvxlki2"]
+
+[ext_resource type="Texture2D" uid="uid://b4724nlah61uq" path="res://Assets/Sprites/direction arrows-Sheet.png" id="1_5b5o0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqekg"]
+atlas = ExtResource("1_5b5o0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xp76"]
+atlas = ExtResource("1_5b5o0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b3d5"]
+atlas = ExtResource("1_5b5o0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugesp"]
+atlas = ExtResource("1_5b5o0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2y65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqekg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xp76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b3d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugesp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Direction Arrow" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_c2y65")
+frame_progress = 0.25644

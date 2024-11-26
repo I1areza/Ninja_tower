@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7fdjo3fclc2a"]
+
+[ext_resource type="Script" path="res://Scripts/PortalLink.cs" id="1_lq2rw"]
+
+[node name="Portal Link" type="Node"]
+script = ExtResource("1_lq2rw")
+_portalColor = Color(1, 1, 1, 1)

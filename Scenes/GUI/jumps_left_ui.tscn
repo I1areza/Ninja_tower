@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxjmpajdolv2f"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/JumpsPresenter.cs" id="1_41dwm"]
+[ext_resource type="Texture2D" uid="uid://m7tjsct2inhu" path="res://Assets/Sprites/ninja-black-32x32.png" id="1_esad3"]
+[ext_resource type="FontFile" uid="uid://mhmgvpn3femc" path="res://Assets/Fonts/m3x6.ttf" id="2_ulsyx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw4a3"]
+atlas = ExtResource("1_esad3")
+region = Rect2(72, 11, 14, 15)
+margin = Rect2(0, 3.7, 0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4njw7"]
+font = ExtResource("2_ulsyx")
+
+[node name="JumpsLeft" type="HBoxContainer"]
+texture_filter = 1
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_constants/separation = 1
+script = ExtResource("1_41dwm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vw4a3")
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "3/3"
+label_settings = SubResource("LabelSettings_4njw7")

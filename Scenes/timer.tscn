@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://1ujlvxjys8w5"]
+
+[ext_resource type="FontFile" uid="uid://mhmgvpn3femc" path="res://Assets/Fonts/m3x6.ttf" id="1_g2hnc"]
+[ext_resource type="Script" path="res://Scripts/GUI/LevelTimer.cs" id="2_yinhk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5bq67"]
+font = ExtResource("1_g2hnc")
+font_size = 64
+
+[node name="Timer" type="Label"]
+offset_left = -19.0
+offset_top = -3.0
+offset_right = 5.0
+offset_bottom = 31.0
+text = "60
+"
+label_settings = SubResource("LabelSettings_5bq67")
+script = ExtResource("2_yinhk")
+
+[node name="Timer" type="Timer" parent="."]

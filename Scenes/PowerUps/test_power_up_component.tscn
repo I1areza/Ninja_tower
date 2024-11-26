@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdc6gvgfwvida"]
+
+[ext_resource type="Script" path="res://Scripts/PowerUps/TestPoweUp.cs" id="1_qd5ff"]
+
+[node name="TestPowerUpComponent" type="Node"]
+script = ExtResource("1_qd5ff")

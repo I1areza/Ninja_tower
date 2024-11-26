@@ -1,0 +1,165 @@
+[gd_scene load_steps=20 format=3 uid="uid://cdaed0hl5fmgj"]
+
+[ext_resource type="Script" path="res://Scripts/PowerUp.cs" id="1_qfexk"]
+[ext_resource type="Texture2D" uid="uid://m07rt6lupmsf" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/halo final.png" id="2_5j3hm"]
+[ext_resource type="Texture2D" uid="uid://tk2tkh1l32i2" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/halo final-Sheet.png" id="3_nu2sq"]
+[ext_resource type="Texture2D" uid="uid://df7vl7577jfjt" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/tilemap.png" id="3_qioa5"]
+
+[sub_resource type="Animation" id="Animation_j5j8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PowerUpSprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.96112]
+}
+
+[sub_resource type="Animation" id="Animation_ukw2x"]
+resource_name = "Shrink Halo"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.5),
+"transitions": PackedFloat32Array(1, 0.517632, 1.41422),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 0.7), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PowerUpSprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.872665, 0.523599, 0.872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vm8u5"]
+_data = {
+"RESET": SubResource("Animation_j5j8l"),
+"Shrink Halo": SubResource("Animation_ukw2x")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2p6n7"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma56s"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5f1k"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdr08"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj61j"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2840g"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asa4u"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdjct"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qwo1"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myiod"]
+atlas = ExtResource("3_nu2sq")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bn68q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2p6n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ma56s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5f1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdr08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj61j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2840g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asa4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdjct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qwo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myiod")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gws2"]
+atlas = ExtResource("3_qioa5")
+region = Rect2(136, 153, 16, 16)
+
+[node name="PowerUp" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_qfexk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+root_node = NodePath("../Halo")
+libraries = {
+"": SubResource("AnimationLibrary_vm8u5")
+}
+autoplay = "Shrink Halo"
+
+[node name="Halo" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_5j3hm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bn68q")
+autoplay = "default"
+frame_progress = 0.805335
+
+[node name="PowerUpSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 0.872665
+texture = SubResource("AtlasTexture_3gws2")

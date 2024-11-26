@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdasv2s5nvfhq"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy/ArealEnemyPath.cs" id="1_tcseu"]
+[ext_resource type="SpriteFrames" uid="uid://dx0kayecce2jh" path="res://Resources/sprite_frames_bat.tres" id="2_c7x22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oop0s"]
+
+[node name="Aerial Enemy" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_tcseu")
+_speed = 50.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oop0s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_c7x22")
+autoplay = "default"
+frame_progress = 0.152747

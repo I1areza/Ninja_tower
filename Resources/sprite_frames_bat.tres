@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dx0kayecce2jh"]
+
+[ext_resource type="Texture2D" uid="uid://ccnht1j8vtmhv" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/Bat-Sheet.png" id="1_tk0ov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0k3a"]
+atlas = ExtResource("1_tk0ov")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh32a"]
+atlas = ExtResource("1_tk0ov")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgtq6"]
+atlas = ExtResource("1_tk0ov")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6fkp"]
+atlas = ExtResource("1_tk0ov")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0k3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh32a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgtq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6fkp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
