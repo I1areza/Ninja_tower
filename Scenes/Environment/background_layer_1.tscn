@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjwfxyya421lx"]
+
+[ext_resource type="TileSet" uid="uid://bdmvoegtjpsm4" path="res://Tilesets/BackGroundTileSet.tres" id="1_73asa"]
+
+[node name="Background_layer_1" type="TileMapLayer"]
+z_index = -2
+texture_filter = 1
+use_parent_material = true
+tile_set = ExtResource("1_73asa")

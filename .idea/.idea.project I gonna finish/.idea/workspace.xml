@@ -7,7 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="" />
+    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Spike.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Spike.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +26,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;l1l6dusa&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/l1l6dusa/Ninja_tower.git&quot;,
+    &quot;accountId&quot;: &quot;b97086eb-448d-4c02-84c5-feaf58616fa0&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
@@ -32,6 +53,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be9fe3a81257ea22292cffb5a1cb14e1dc3ba67821b28711e066bc1cab8/CollisionObject2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43c43ee5cdcf2c7c8ddb9366f75a76a3c61c77bf45ceac78721c269f3c360/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -44,7 +66,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Executable.Player.executor": "Debug",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "XThreadsFramesViewSplitterKey": "0.50440526",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -53,7 +78,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -129,13 +154,24 @@
       <workItem from="1732486263917" duration="363000" />
       <workItem from="1732486736282" duration="6737000" />
       <workItem from="1732496237560" duration="16561000" />
-      <workItem from="1732627760889" duration="1296000" />
+      <workItem from="1732627760889" duration="34112000" />
+      <workItem from="1732970043234" duration="18138000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1732639673906</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732639673906</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -150,6 +186,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

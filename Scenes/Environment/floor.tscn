@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=4 uid="uid://bj2tku6nn6f0c"]
+
+[ext_resource type="TileSet" uid="uid://dj04d0a41j3ei" path="res://Tilesets/floorTileSet.tres" id="1_4wrjq"]
+
+[node name="Floor" type="TileMapLayer"]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAABAB0AAQACAAEAAAACAB0AAQACAAEAAAADAB0AAQACAAEAAAAEAB0AAQACAAEAAAAFAB0AAQACAAEAAAAGAB0AAQACAAEAAAAHAB0AAQACAAEAAAAIAB0AAQACAAEAAAAJAB0AAQACAAEAAAAKAB0AAQACAAEAAAALAB0AAQACAAEAAAAMAB0AAQACAAEAAAANAB0AAQACAAEAAAA=")
+tile_set = ExtResource("1_4wrjq")
+use_kinematic_bodies = true

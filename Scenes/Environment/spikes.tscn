@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=4 uid="uid://b3r7hl8puulfd"]
+
+[ext_resource type="TileSet" uid="uid://dwphsci7uslj8" path="res://Tilesets/SpikesTileSet.tres" id="1_bi8mt"]
+[ext_resource type="Script" path="res://Scripts/Spike.cs" id="2_k5run"]
+
+[node name="Spikes" type="TileMapLayer"]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAABABYAAAABAA4AAgABABcAAAABAA4AAgABABgAAAABAA4AAgABABkAAAABAA4AAgAGABEAAAABAA4AAgAFABIAAAACAA4ABAAEABIAAAACAA4ABAA=")
+tile_set = ExtResource("1_bi8mt")
+use_kinematic_bodies = true
+script = ExtResource("2_k5run")

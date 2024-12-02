@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://2dobw180mjey"]
+
+[ext_resource type="Script" path="res://Scripts/Lever.cs" id="1_ydlfm"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/outline.gdshader" id="2_ppxjj"]
+[ext_resource type="Texture2D" uid="uid://cp0xiq2vfwp62" path="res://Assets/Sprites/craftpix-net-481532-free-medieval-tileset-pixel-art-pack/lever2-Sheet.png" id="2_uacwj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lehg0"]
+resource_local_to_scene = true
+shader = ExtResource("2_ppxjj")
+shader_parameter/width = 2
+shader_parameter/outline_color = Color(1, 0.106445, 0.0625, 1)
+shader_parameter/flickering_speed = 8.0
+shader_parameter/minimal_flickering_alpha = null
+shader_parameter/texture_alpha = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aupgv"]
+atlas = ExtResource("2_uacwj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0pgs"]
+atlas = ExtResource("2_uacwj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bof31"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aupgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0pgs")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ntj"]
+size = Vector2(26, 18.5)
+
+[node name="Lever" type="Area2D" node_paths=PackedStringArray("_animatedSprite")]
+script = ExtResource("1_ydlfm")
+_color = Color(0.254902, 0.933333, 0.00392157, 1)
+_animatedSprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lehg0")
+sprite_frames = SubResource("SpriteFrames_bof31")
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_t3ntj")

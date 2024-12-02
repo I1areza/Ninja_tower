@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://be78kpdyc35my"]
+
+[ext_resource type="Script" path="res://Scripts/Platform.cs" id="1_0jtvv"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/outline.gdshader" id="1_bkq8k"]
+[ext_resource type="Texture2D" uid="uid://ci82egle86ekp" path="res://Assets/Sprites/4blockPlatform.png" id="2_g5i6q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4come"]
+resource_local_to_scene = true
+shader = ExtResource("1_bkq8k")
+shader_parameter/width = 2
+shader_parameter/outline_color = Color(0.2408, 0.86, 0.4988, 1)
+shader_parameter/flickering_speed = 3.0
+shader_parameter/minimal_flickering_alpha = 0.7
+shader_parameter/texture_alpha = 0.3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuonc"]
+size = Vector2(64.944, 31)
+
+[sub_resource type="Animation" id="Animation_1u0th"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/texture_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ae2bo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/texture_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c3r7t"]
+_data = {
+"FadeIn": SubResource("Animation_1u0th"),
+"RESET": SubResource("Animation_ae2bo")
+}
+
+[node name="4 blocks platform" type="AnimatableBody2D" node_paths=PackedStringArray("_shape", "_sprite", "_animationPlayer")]
+collision_layer = 2
+script = ExtResource("1_0jtvv")
+_shape = NodePath("CollisionShape2D")
+_sprite = NodePath("Sprite2D")
+_animationPlayer = NodePath("AnimationPlayer")
+_alpha = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4come")
+texture = ExtResource("2_g5i6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.546114, 0.5)
+scale = Vector2(0.987453, 0.517898)
+shape = SubResource("RectangleShape2D_fuonc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c3r7t")
+}

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsqmuc4bgj1p7"]
+
+[ext_resource type="Script" path="res://RemoteFollow.cs" id="1_g8a2j"]
+
+[node name="Platform Path" type="PathFollow2D"]
+script = ExtResource("1_g8a2j")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

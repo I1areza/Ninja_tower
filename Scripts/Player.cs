@@ -55,12 +55,15 @@ public partial class Player : CharacterBody2D
             if (collision != null)
             {
                 GD.Print(collision.GetCollider().ToString());
-                if (collision.GetCollider() is TileMap tileMap) 
+                if (collision.GetCollider() is TileMapLayer  || collision.GetCollider() is Platform) 
                 {
                     
-                    if (tileMap.TileSet.GetPhysicsLayerCollisionLayer(0) == _deathLayer) 
+                    if (collision.GetCollider() is TileMapLayer tileMapLayer) 
                     {
-                        Die();
+                        if (tileMapLayer.TileSet.GetPhysicsLayerCollisionLayer(0) == _deathLayer)
+                        {
+                            Die(); 
+                        }
                     }
                     _isMoving = false;
                     _velocity = Vector2.Zero;

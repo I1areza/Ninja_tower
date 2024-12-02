@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=4 uid="uid://ex70rrm60r0s"]
+
+[ext_resource type="TileSet" uid="uid://bajvetfjbq47w" path="res://Tilesets/EnvTileSet.tres" id="1_mhx4c"]
+
+[node name="Environment" type="TileMapLayer"]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAALABwAAAAFAAkAAAALABsAAAAFAAkAAAALABoAAAAFAAkAAAALABkAAAAFAAgAAAADABAAAAAKAAwAAAAMAA4AAAAGAAwAAAADABwAAAALAAwAAAAKABgAAAAKAAwAAAADAA8AAAAKAAwAAAAKAA4AAAAEAAwAAAALAA4AAAAFAAwAAAAEAAsAAAAHAAoAAAANAAwAAAAKAAoAAAADAAUAAAANAAoAAAADAAYAAAANAAsAAAA=")
+tile_set = ExtResource("1_mhx4c")
