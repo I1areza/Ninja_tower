@@ -7,10 +7,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4come"]
 resource_local_to_scene = true
 shader = ExtResource("1_bkq8k")
-shader_parameter/width = 2
+shader_parameter/outline_width = 2
 shader_parameter/outline_color = Color(0.2408, 0.86, 0.4988, 1)
+shader_parameter/enable_flickering = null
 shader_parameter/flickering_speed = 3.0
-shader_parameter/minimal_flickering_alpha = 0.7
+shader_parameter/minimal_flickering_alpha_ratio = 0.3
 shader_parameter/texture_alpha = 0.3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuonc"]
@@ -25,10 +26,22 @@ tracks/0/path = NodePath("Sprite2D:material:shader_parameter/texture_alpha")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.3, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.2408, 0.86, 0.4988, 1), Color(0.2408, 0.86, 0.4988, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ae2bo"]
@@ -45,6 +58,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.2408, 0.86, 0.4988, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c3r7t"]
 _data = {
@@ -58,7 +83,8 @@ script = ExtResource("1_0jtvv")
 _shape = NodePath("CollisionShape2D")
 _sprite = NodePath("Sprite2D")
 _animationPlayer = NodePath("AnimationPlayer")
-_alpha = 0.1
+_textureAlpha = 0.3
+_outlineWidth = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

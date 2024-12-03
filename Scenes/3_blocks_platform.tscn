@@ -7,13 +7,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4come"]
 resource_local_to_scene = true
 shader = ExtResource("1_mhmmw")
-shader_parameter/width = 2
+shader_parameter/outline_width = 2
 shader_parameter/outline_color = Color(0.240601, 0.855469, 0.495194, 1)
+shader_parameter/enable_flickering = null
 shader_parameter/flickering_speed = 3.0
 shader_parameter/minimal_flickering_alpha_ratio = 0.7
-shader_parameter/max_alpha = 0.7
 shader_parameter/texture_alpha = 0.3
-shader_parameter/flicker = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blmm1"]
 size = Vector2(48, 16)
@@ -32,6 +31,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.3, 1.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.240601, 0.855469, 0.495194, 1), Color(0.2408, 0.86, 0.4988, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_pn1te"]
 length = 0.001
@@ -47,6 +58,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.240601, 0.855469, 0.495194, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_weaur"]
 _data = {
@@ -60,6 +83,8 @@ script = ExtResource("1_ijq2t")
 _shape = NodePath("CollisionShape2D")
 _sprite = NodePath("Sprite2D")
 _animationPlayer = NodePath("AnimationPlayer")
+_textureAlpha = 0.3
+_outlineWidth = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -32,10 +32,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ic5d8"]
 resource_local_to_scene = true
 shader = ExtResource("25_10jjq")
-shader_parameter/width = 2
+shader_parameter/outline_width = null
 shader_parameter/outline_color = Color(0.240601, 0.855469, 0.495194, 1)
+shader_parameter/enable_flickering = null
 shader_parameter/flickering_speed = 1.0
-shader_parameter/minimal_flickering_alpha = 0.8
+shader_parameter/minimal_flickering_alpha_ratio = null
 shader_parameter/texture_alpha = 0.3
 
 [node name="Test Level" type="Node2D" node_paths=PackedStringArray("_levelTimer", "_player")]
@@ -240,16 +241,13 @@ frame_progress = 0.448605
 position = Vector2(32, 377)
 rotation = 1.5708
 _platform = NodePath("../3 blocks platform")
-_color = Color(0.862122, 0.882813, 0.882328, 1)
 
 [node name="4 blocks platform" parent="." instance=ExtResource("24_480k6")]
 position = Vector2(71, 324)
-_alpha = 0.4
 
 [node name="3 blocks platform" parent="." instance=ExtResource("24_csjag")]
 position = Vector2(203, 421)
 rotation = 1.5708
-_alpha = 0.1
 
 [node name="Sprite2D" parent="3 blocks platform" index="0"]
 material = SubResource("ShaderMaterial_ic5d8")
