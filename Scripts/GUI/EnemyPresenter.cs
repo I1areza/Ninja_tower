@@ -3,7 +3,7 @@ using System;
 
 public partial class EnemyPresenter : HBoxContainer
 {
-    [Export] private EnemyContainer _enemyContainer;
+    private EnemyContainer _enemyContainer;
 	private Label _label;
 	private int _maximumEnemies;
     private int _currentEnemies;
@@ -11,11 +11,7 @@ public partial class EnemyPresenter : HBoxContainer
 	public override void _Ready()
 	{
         _label = GetNode<Label>("Label");
-        Initialize(_enemyContainer.EnemyCount);
-        foreach (var enemy in _enemyContainer.Enemies) 
-        {
-            enemy.EnemyDeleted += OnEnemyKilled;
-        }
+       
         
     }
 
@@ -37,5 +33,15 @@ public partial class EnemyPresenter : HBoxContainer
     {
         
         UpdateEnemyCounter(--_currentEnemies);
+    }
+
+    public void SetEnemyContainer(EnemyContainer enemyContainer)
+    {
+        _enemyContainer = enemyContainer;
+        Initialize(_enemyContainer.EnemyCount);
+        foreach (var enemy in _enemyContainer.Enemies) 
+        {
+            enemy.EnemyDeleted += OnEnemyKilled;
+        }
     }
 }

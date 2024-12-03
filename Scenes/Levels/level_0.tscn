@@ -26,10 +26,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
 
-[node name="Level 0" type="Node2D" node_paths=PackedStringArray("_levelTimer", "_player")]
+[node name="Level 0" type="Node2D" node_paths=PackedStringArray("_player")]
 position = Vector2(1, 0)
 script = ExtResource("1_3c4ad")
-_levelTimer = NodePath("UI/GUI/Timer")
 _player = NodePath("Player")
 _levelTimeLimit = 60
 _nextScenePath = "res://Scenes/Levels/level_1.tscn"
@@ -188,14 +187,12 @@ scale = Vector2(2, 2)
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="JumpsLeft" parent="UI/GUI/VBoxContainer" node_paths=PackedStringArray("_touchController") instance=ExtResource("11_hyqjt")]
+[node name="JumpsLeft" parent="UI/GUI/VBoxContainer" instance=ExtResource("11_hyqjt")]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_touchController = NodePath("../../../../TouchController")
 
-[node name="EnemiesLeft" parent="UI/GUI/VBoxContainer" node_paths=PackedStringArray("_enemyContainer") instance=ExtResource("12_y3m31")]
+[node name="EnemiesLeft" parent="UI/GUI/VBoxContainer" instance=ExtResource("12_y3m31")]
 layout_mode = 2
 size_flags_horizontal = 0
-_enemyContainer = NodePath("../../../../EnemyContainer")

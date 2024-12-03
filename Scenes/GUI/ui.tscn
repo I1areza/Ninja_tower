@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://j2sbrm62e20f"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/UIManager.cs" id="1_65l0g"]
+[ext_resource type="Texture2D" uid="uid://cxbuvucyp0hji" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/pause.png" id="2_g3g4e"]
+[ext_resource type="PackedScene" uid="uid://1ujlvxjys8w5" path="res://Scenes/timer.tscn" id="3_oe7hv"]
+[ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="4_orqb5"]
+[ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="5_47pro"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_65l0g")
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 6
+
+[node name="TextureButton" type="TextureButton" parent="GUI"]
+modulate = Color(1, 1, 1, 0.745098)
+texture_filter = 1
+layout_direction = 1
+layout_mode = 1
+offset_left = 13.0
+offset_right = 31.0
+offset_bottom = 18.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_g3g4e")
+stretch_mode = 3
+
+[node name="Timer" parent="GUI" instance=ExtResource("3_oe7hv")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 75.0
+offset_top = -15.0
+offset_right = 115.0
+offset_bottom = 44.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+custom_minimum_size = Vector2(40.22, 2)
+layout_mode = 1
+offset_left = 200.0
+offset_top = 32.0
+offset_right = 240.22
+offset_bottom = 74.0
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="JumpsLeft" parent="GUI/VBoxContainer" instance=ExtResource("4_orqb5")]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="EnemiesLeft" parent="GUI/VBoxContainer" instance=ExtResource("5_47pro")]
+clip_contents = true
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+size_flags_horizontal = 0
