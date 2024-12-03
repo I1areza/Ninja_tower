@@ -9,9 +9,11 @@ resource_local_to_scene = true
 shader = ExtResource("1_mhmmw")
 shader_parameter/width = 2
 shader_parameter/outline_color = Color(0.240601, 0.855469, 0.495194, 1)
-shader_parameter/flickering_speed = 1.0
-shader_parameter/minimal_flickering_alpha = 0.8
+shader_parameter/flickering_speed = 3.0
+shader_parameter/minimal_flickering_alpha_ratio = 0.7
+shader_parameter/max_alpha = 0.7
 shader_parameter/texture_alpha = 0.3
+shader_parameter/flicker = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blmm1"]
 size = Vector2(48, 16)
