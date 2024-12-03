@@ -77,9 +77,9 @@ _data = {
 
 [node name="Lever" type="Area2D" node_paths=PackedStringArray("_animatedSprite", "_animationPlayer")]
 script = ExtResource("1_ydlfm")
-_outlineColor = Color(0.925781, 0.448425, 0.448425, 0.8)
 _animatedSprite = NodePath("AnimatedSprite2D")
 _animationPlayer = NodePath("AnimationPlayer")
+_outlineColor = Color(0.925781, 0.448425, 0.448425, 0.8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

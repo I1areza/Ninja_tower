@@ -3,10 +3,17 @@ using System;
 
 public partial class Lever : Area2D
 {
+	[ExportGroup("Lever References")]
 	[Export]  Platform _platform = null;
-	[Export] private Color _outlineColor;
 	[Export] private AnimatedSprite2D _animatedSprite;
 	[Export] private AnimationPlayer _animationPlayer;
+	
+	[ExportGroup("Outline Shader properties")]
+	[Export] private bool _isFlickeringEnabled;
+	[Export] private float _flickeringSpeed;
+	[Export] private Color _outlineColor;
+	
+	
 	[Signal] public delegate void OnLeverTriggeredEventHandler();
 	
 	private bool isActive = true;
@@ -18,7 +25,7 @@ public partial class Lever : Area2D
 		endColor.A = 0;
 		_animationPlayer.GetAnimation("FadeIn").TrackSetKeyValue(0,1, endColor);
 		
-		_platform.SetPlatformOutlineColor(_outlineColor);
+		_platform.ConfigurePlatform(_outlineColor, _isFlickeringEnabled, _flickeringSpeed);
 		BodyEntered+=OnBodyEntered;
 	}
 	private void OnBodyEntered(Node2D body)
