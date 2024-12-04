@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv6tcfjto1emf"]
+
+[ext_resource type="Texture2D" uid="uid://cpr2406ua5nij" path="res://Assets/Sprites/heatbar.png" id="1_27qpt"]
+[ext_resource type="Script" path="res://Scenes/GUI/Heatbar.cs" id="1_f7jwu"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/heatbar.gdshader" id="2_rdirv"]
+[ext_resource type="Texture2D" uid="uid://dt755h12lffk7" path="res://Assets/Sprites/progressbar_separated.png" id="4_s6v1x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ywrv"]
+atlas = ExtResource("1_27qpt")
+region = Rect2(2, 12, 29, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v78t"]
+shader = ExtResource("2_rdirv")
+shader_parameter/clip_x = 0.37
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx4wt"]
+atlas = ExtResource("1_27qpt")
+region = Rect2(13, 81, 17, 2)
+
+[node name="HeatBar" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -240.0
+offset_right = -120.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.385, 1.16)
+script = ExtResource("1_f7jwu")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 29.0
+offset_bottom = 8.0
+texture = SubResource("AtlasTexture_1ywrv")
+stretch_mode = 2
+
+[node name="ProgressBar" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6v78t")
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 28.0
+offset_bottom = 7.0
+texture = ExtResource("4_s6v1x")
+
+[node name="Foreground" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 28.0
+offset_bottom = 7.0
+texture = SubResource("AtlasTexture_qx4wt")
+expand_mode = 2
+stretch_mode = 2

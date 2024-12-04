@@ -9,7 +9,7 @@ public partial class Score : Label
 	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public void UpdateScore(EnemyDeletedEventArgs args)
+	public void UpdateScore(EnemyDiedEventArgs args)
 	{
 		score += args.Score;
 		Text = score.ToString();

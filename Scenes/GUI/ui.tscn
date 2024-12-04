@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://j2sbrm62e20f"]
+[gd_scene load_steps=7 format=3 uid="uid://j2sbrm62e20f"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/UIManager.cs" id="1_65l0g"]
+[ext_resource type="PackedScene" uid="uid://dtlnmtoa4j14b" path="res://Scenes/GUI/Score.tscn" id="2_btr1m"]
 [ext_resource type="Texture2D" uid="uid://cxbuvucyp0hji" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/pause.png" id="2_g3g4e"]
-[ext_resource type="PackedScene" uid="uid://1ujlvxjys8w5" path="res://Scenes/timer.tscn" id="3_oe7hv"]
 [ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="4_orqb5"]
 [ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="5_47pro"]
+[ext_resource type="PackedScene" uid="uid://dv6tcfjto1emf" path="res://Scenes/GUI/heatbar.tscn" id="6_jhbgw"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_65l0g")
@@ -19,16 +20,19 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 6
 
-[node name="Score" parent="GUI" instance=ExtResource("3_oe7hv")]
-texture_filter = 1
-layout_mode = 2
-offset_left = 101.0
-offset_top = 29.0
-offset_right = 173.0
-offset_bottom = 88.0
-scale = Vector2(0.8, 0.8)
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Score" parent="GUI" instance=ExtResource("2_btr1m")]
+offset_left = 94.0
+offset_top = 19.0
+offset_right = 166.0
+offset_bottom = 78.0
+
+[node name="HeatBar" parent="GUI" instance=ExtResource("6_jhbgw")]
+layout_mode = 1
+offset_left = -22.0
+offset_top = -168.0
+offset_right = -22.0
+offset_bottom = -168.0
+scale = Vector2(2, 2)
 
 [node name="TextureButton" type="TextureButton" parent="GUI"]
 modulate = Color(1, 1, 1, 0.745098)
@@ -68,9 +72,3 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 _score = NodePath("../../Score")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 137.0
-offset_top = 113.0
-offset_right = 177.0
-offset_bottom = 153.0

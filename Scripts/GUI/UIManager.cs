@@ -7,6 +7,7 @@ public partial class UIManager : CanvasLayer
 	[Export] private EnemyContainer _enemyContainer;
 	private JumpsPresenter _jumpsPresenter;
 	private EnemyPresenter _enemyPresenter;
+	private Heatbar _heatbar;
 	//private LevelTimer _levelTimer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

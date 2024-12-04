@@ -31,7 +31,7 @@ public partial class EnemyPresenter : HBoxContainer
         _label.Text = $"{enemiesLeft}/{_maximumEnemies}";
     }
 
-    private void OnEnemyKilled(EnemyDeletedEventArgs args) 
+    private void OnEnemyKilled(EnemyDiedEventArgs args) 
     {
         UpdateEnemyCounter(--_currentEnemies);
     }
@@ -40,10 +40,11 @@ public partial class EnemyPresenter : HBoxContainer
     {
         _enemyContainer = enemyContainer;
         Initialize(_enemyContainer.EnemyCount);
-        foreach (var enemy in _enemyContainer.Enemies) 
+        foreach (var enemy in _enemyContainer.Enemies)
         {
-            enemy.EnemyDeleted += OnEnemyKilled;
-            enemy.EnemyDeleted += _score.UpdateScore;
+            
+            enemy.EnemyDied += OnEnemyKilled;
+            enemy.EnemyDied += _score.UpdateScore;
         }
     }
 }

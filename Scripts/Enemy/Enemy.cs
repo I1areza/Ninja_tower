@@ -5,6 +5,7 @@ public partial class Enemy : CharacterBody2D
 {
 	[Export] protected float _speed;
 	[Export] protected int _score;
+	[Export] protected int _heatbarProgress;
 	private Area2D _area;
 	protected RayCast2D _raycast;
 	private float _gravity;
@@ -13,7 +14,7 @@ public partial class Enemy : CharacterBody2D
 	private Vector2 _velocity;
 
 	[Signal]
-	public delegate void EnemyDeletedEventHandler(EnemyDeletedEventArgs eventArgs);
+	public delegate void EnemyDiedEventHandler(EnemyDiedEventArgs eventArgs);
 
 	public override void _Ready()
 	{
@@ -64,7 +65,7 @@ public partial class Enemy : CharacterBody2D
 	private void RemoveEnemy() 
 	{
         QueueFree();
-        EmitSignal(SignalName.EnemyDeleted, new EnemyDeletedEventArgs(_score, this));
+		EmitSignal(SignalName.EnemyDied, new EnemyDiedEventArgs(_score, _heatbarProgress));
 
 	}
 }

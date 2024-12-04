@@ -8,20 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="timer is removed, score is added">
-      <change afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/enemy_with_sword.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/enemy_with_sword.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GUI/jumps_left_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/jumps_left_ui.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/timer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/timer.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/timer.tscn" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/GUI/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Platform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Platform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Utils/EnemyDiedEventArgs.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +159,7 @@
       <workItem from="1732496237560" duration="16561000" />
       <workItem from="1732627760889" duration="34112000" />
       <workItem from="1732970043234" duration="29457000" />
-      <workItem from="1733270426900" duration="2258000" />
+      <workItem from="1733270426900" duration="12346000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -205,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733238608822</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="timer is removed, score is added">
+      <option name="closed" value="true" />
+      <created>1733274442432</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733274442432</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
