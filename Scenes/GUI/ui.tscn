@@ -19,48 +19,58 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 6
 
+[node name="Score" parent="GUI" instance=ExtResource("3_oe7hv")]
+texture_filter = 1
+layout_mode = 2
+offset_left = 101.0
+offset_top = 29.0
+offset_right = 173.0
+offset_bottom = 88.0
+scale = Vector2(0.8, 0.8)
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureButton" type="TextureButton" parent="GUI"]
 modulate = Color(1, 1, 1, 0.745098)
 texture_filter = 1
 layout_direction = 1
 layout_mode = 1
-offset_left = 13.0
-offset_right = 31.0
-offset_bottom = 18.0
+offset_left = 204.0
+offset_top = 1.0
+offset_right = 222.0
+offset_bottom = 19.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("2_g3g4e")
 stretch_mode = 3
 
-[node name="Timer" parent="GUI" instance=ExtResource("3_oe7hv")]
-texture_filter = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+custom_minimum_size = Vector2(0, 3.6)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 75.0
-offset_top = -15.0
-offset_right = 115.0
-offset_bottom = 44.0
+offset_left = -56.0
+offset_right = 20.0
+offset_bottom = 21.0
 grow_horizontal = 2
+scale = Vector2(1.7, 1.7)
+theme_override_constants/separation = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
-custom_minimum_size = Vector2(40.22, 2)
-layout_mode = 1
-offset_left = 200.0
-offset_top = 32.0
-offset_right = 240.22
-offset_bottom = 74.0
-size_flags_vertical = 4
-theme_override_constants/separation = 0
-
-[node name="JumpsLeft" parent="GUI/VBoxContainer" instance=ExtResource("4_orqb5")]
+[node name="JumpsLeft" parent="GUI/HBoxContainer" instance=ExtResource("4_orqb5")]
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="EnemiesLeft" parent="GUI/VBoxContainer" instance=ExtResource("5_47pro")]
+[node name="EnemiesLeft" parent="GUI/HBoxContainer" node_paths=PackedStringArray("_score") instance=ExtResource("5_47pro")]
 clip_contents = true
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+_score = NodePath("../../Score")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 137.0
+offset_top = 113.0
+offset_right = 177.0
+offset_bottom = 153.0

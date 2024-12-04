@@ -56,6 +56,7 @@ _data = {
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_eyxbv")
+_score = 50
 
 [node name="Weapon" parent="." instance=ExtResource("3_ver37")]
 texture_filter = 1

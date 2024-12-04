@@ -1,8 +1,10 @@
 using Godot;
+using projectIgonnafinish.Scripts.Utils;
+
 public partial class Enemy : CharacterBody2D
 {
 	[Export] protected float _speed;
-	
+	[Export] protected int _score;
 	private Area2D _area;
 	protected RayCast2D _raycast;
 	private float _gravity;
@@ -11,7 +13,7 @@ public partial class Enemy : CharacterBody2D
 	private Vector2 _velocity;
 
 	[Signal]
-	public delegate void EnemyDeletedEventHandler();
+	public delegate void EnemyDeletedEventHandler(EnemyDeletedEventArgs eventArgs);
 
 	public override void _Ready()
 	{
@@ -62,7 +64,7 @@ public partial class Enemy : CharacterBody2D
 	private void RemoveEnemy() 
 	{
         QueueFree();
-		EmitSignal(SignalName.EnemyDeleted);
+        EmitSignal(SignalName.EnemyDeleted, new EnemyDeletedEventArgs(_score, this));
 
-    }
+	}
 }

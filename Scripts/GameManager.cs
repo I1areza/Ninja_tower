@@ -7,14 +7,14 @@ public partial class GameManager : Node
 	[Export] private Player _player;
 	[Export] private int _levelTimeLimit;
 	[Export(PropertyHint.File)] private String _nextScenePath;
-	private LevelTimer _levelTimer;
+	//private LevelTimer _levelTimer;
 
 	public override void _Ready()
 	{
-		_levelTimer = _uiManager.GetTimer();
-		_levelTimer.InitializeTimer(_levelTimeLimit);
+		//_levelTimer = _uiManager.GetTimer();	
+		//_levelTimer.InitializeTimer(_levelTimeLimit);
         _player.PlayerDeath += ResetLevel;
-		_levelTimer.OnLevelTimerTimeout += ResetLevel;
+		//_levelTimer.OnLevelTimerTimeout += ResetLevel;
     }
 
 	private async void ResetLevel() 

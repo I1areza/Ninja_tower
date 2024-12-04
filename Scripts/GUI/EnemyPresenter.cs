@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using projectIgonnafinish.Scripts.Utils;
 
 public partial class EnemyPresenter : HBoxContainer
 {
@@ -7,10 +8,11 @@ public partial class EnemyPresenter : HBoxContainer
 	private Label _label;
 	private int _maximumEnemies;
     private int _currentEnemies;
+    [Export] private Score _score;
 
 	public override void _Ready()
-	{
-        _label = GetNode<Label>("Label");
+	{ 
+       _label = GetNode<Label>("Label");
        
         
     }
@@ -29,9 +31,8 @@ public partial class EnemyPresenter : HBoxContainer
         _label.Text = $"{enemiesLeft}/{_maximumEnemies}";
     }
 
-    private void OnEnemyKilled() 
+    private void OnEnemyKilled(EnemyDeletedEventArgs args) 
     {
-        
         UpdateEnemyCounter(--_currentEnemies);
     }
 
@@ -42,6 +43,7 @@ public partial class EnemyPresenter : HBoxContainer
         foreach (var enemy in _enemyContainer.Enemies) 
         {
             enemy.EnemyDeleted += OnEnemyKilled;
+            enemy.EnemyDeleted += _score.UpdateScore;
         }
     }
 }

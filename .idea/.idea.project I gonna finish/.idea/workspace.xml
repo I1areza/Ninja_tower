@@ -7,14 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="finalized lever+platform system&#10;minor outline shader tweaks">
+    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="timer is removed, score is added">
+      <change afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/enemy_with_sword.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/enemy_with_sword.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/GUI/jumps_left_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/jumps_left_ui.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/timer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/timer.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GUI/JumpsPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/JumpsPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +46,9 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptSignalsGenerator/Enemy_ScriptSignals.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23fd556cc1333e1428b66422f2ce9db97b81d8d173ceefda39d58c9b0146f2c/CharacterBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5be498bb2deb5aa9162565bdecd68f0beaea52/WeaponizedEnemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,6 +163,7 @@
       <workItem from="1732496237560" duration="16561000" />
       <workItem from="1732627760889" duration="34112000" />
       <workItem from="1732970043234" duration="29457000" />
+      <workItem from="1733270426900" duration="2258000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -186,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733227560631</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="UI is moved to a separate scene">
+      <option name="closed" value="true" />
+      <created>1733238608822</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733238608822</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,9 +230,28 @@
     <MESSAGE value="added a lot" />
     <MESSAGE value="final outline shader changes" />
     <MESSAGE value="finalized lever+platform system&#10;minor outline shader tweaks" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalized lever+platform system&#10;minor outline shader tweaks" />
+    <MESSAGE value="UI is moved to a separate scene" />
+    <MESSAGE value="timer is removed, score is added" />
+    <option name="LAST_COMMIT_MESSAGE" value="timer is removed, score is added" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Scripts/Enemy/EnemyContainer.cs</url>
+          <line>21</line>
+          <properties documentPath="A:\Godot Projects\Ninja Tower\Scripts\Enemy\EnemyContainer.cs" containingFunctionPresentation="Method '_Ready'">
+            <startOffsets>
+              <option value="379" />
+            </startOffsets>
+            <endOffsets>
+              <option value="411" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Godot.GodotObject" memberName="NativePtr" />

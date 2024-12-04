@@ -6,7 +6,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vw4a3"]
 atlas = ExtResource("1_esad3")
-region = Rect2(9, 10, 14, 17)
+region = Rect2(71, 10, 16, 17)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4njw7"]
 font = ExtResource("2_ulsyx")
