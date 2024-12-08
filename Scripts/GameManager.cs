@@ -25,7 +25,6 @@ public partial class GameManager : Node
 	public override void _Ready()
 	{
 		_touchController.Init(_levelSwipesCount);
-		GD.Print(typeof(Enemy).ToString());
 		var iscorables = FindChildren<IScorable>();
 		foreach (var scorable in iscorables)
 		{

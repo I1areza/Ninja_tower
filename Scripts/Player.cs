@@ -54,7 +54,7 @@ public partial class Player : CharacterBody2D
             var collision = MoveAndCollide(_velocity * (float)delta);
             if (collision != null)
             {
-                GD.Print(collision.GetCollider().ToString());
+               
                 if (collision.GetCollider() is TileMapLayer  || collision.GetCollider() is Platform) 
                 {
                     

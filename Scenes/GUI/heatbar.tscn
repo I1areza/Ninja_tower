@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dv6tcfjto1emf"]
 
 [ext_resource type="Texture2D" uid="uid://cpr2406ua5nij" path="res://Assets/Sprites/heatbar.png" id="1_27qpt"]
-[ext_resource type="Script" path="res://Scenes/GUI/Heatbar.cs" id="1_f7jwu"]
+[ext_resource type="Script" path="res://Scripts/Heatbar.cs" id="1_f7jwu"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/heatbar.gdshader" id="2_rdirv"]
 [ext_resource type="Texture2D" uid="uid://dt755h12lffk7" path="res://Assets/Sprites/progressbar_separated.png" id="4_s6v1x"]
 

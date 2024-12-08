@@ -35,7 +35,7 @@ public partial class Enemy : CharacterBody2D, IScorable
 		
 		if (!_raycast.IsColliding())
 		{
-			GD.Print(_raycast.IsColliding());
+			
 			Flip();
 			_direction *= -1;
 		}

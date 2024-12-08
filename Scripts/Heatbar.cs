@@ -57,7 +57,5 @@ public partial class Heatbar : Control
 		}
 		Visible = true;
 		_progress = Mathf.Clamp(_progress + args.HeatbarProgress, 0, 1);
-		GD.Print($"{(args.Sender as IScorable)}");
-		//_progressBarShader.SetShaderParameter("clip_x", _progress);
 	}
 }

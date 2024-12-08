@@ -111,18 +111,24 @@ tile_set = ExtResource("8_ekee4")
 [node name="CoinsContainer" type="Node" parent="."]
 
 [node name="Coin" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(43, 362)
+position = Vector2(31, 364)
 _score = 10
-_heatbarProgress = 0.1
+_heatbarProgress = 0.15
 
 [node name="Coin2" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(58, 362)
+position = Vector2(47, 364)
+_score = 10
+_heatbarProgress = 0.15
 
 [node name="Coin3" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(88, 362)
+position = Vector2(62, 364)
+_score = 10
+_heatbarProgress = 0.15
 
 [node name="Coin4" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(73, 362)
+position = Vector2(78, 364)
+_score = 10
+_heatbarProgress = 0.15
 
 [node name="EnemyContainer" parent="." instance=ExtResource("6_1wqfe")]
 
@@ -155,7 +161,7 @@ curve = ExtResource("16_8k2wf")
 _cyclicPath = true
 
 [node name="ArealEnemyPath2" type="Path2D" parent="Aerial EnemyContainer"]
-position = Vector2(190, 259)
+position = Vector2(191, 260)
 curve = ExtResource("15_nee8n")
 
 [node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_theg8")]
