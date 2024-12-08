@@ -3,7 +3,6 @@ using System;
 
 public partial class JumpsPresenter : HBoxContainer
 {
-	private TouchController _touchController;
 	private int _maximumJumps;
     private int _currentJumps;
     private Label _label;
@@ -14,7 +13,7 @@ public partial class JumpsPresenter : HBoxContainer
 		
     }
 
-	private void Initialize(int maximumJumps) 
+	private void Init(int maximumJumps) 
 	{
 		_maximumJumps = maximumJumps;
 		_currentJumps = maximumJumps;
@@ -32,10 +31,9 @@ public partial class JumpsPresenter : HBoxContainer
         UpdateJumps(_currentJumps);
     }
 
-	public void SetTouchController(TouchController touchController)
+	public void Init(TouchController touchController)
 	{
-		_touchController = touchController;
-		Initialize(_touchController.MaximumSwipeCount);
-		_touchController.SwipeCompleted += OnSwipceCompleted;
+		Init(touchController.MaximumSwipeCount);
+		touchController.SwipeCompleted += OnSwipceCompleted;
 	}
 }

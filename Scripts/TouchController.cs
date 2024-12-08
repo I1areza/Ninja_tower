@@ -4,7 +4,7 @@ public partial class TouchController: Node
 {
 	[Export] private int _maximumSwipeCount;
     private int _currentSwipeCount;
-    private bool _inProgress = false;
+    private bool _inProgress;
 	private bool _swipesEnabled = true;
 	Vector2 to;
 	Vector2 from;
@@ -27,11 +27,12 @@ public partial class TouchController: Node
 		get { return _inProgress; }
     }
 
-
-    public override void _Ready()
+    public void Init(int swipes)
     {
-		_currentSwipeCount = _maximumSwipeCount;
+	    _maximumSwipeCount = swipes;
+	    _currentSwipeCount = swipes;
     }
+    
 
     public override void _UnhandledInput(InputEvent @event)
     {

@@ -1,23 +1,57 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using projectIgonnafinish.Scripts.Utils;
+
 
 public partial class GameManager : Node
 {
+
 	
 	
+	private int _score;
+	[Export] private int _heatBarWearOffTime;
 	[Export] private UIManager _uiManager;
+	[Export] private int _levelSwipesCount;
 	[Export] private Player _player;
-	[Export] private int _levelTimeLimit;
-	[Export] private EnemyContainer _enemyContainer;
+	[Export] private int _scoreModifier;
 	[Export(PropertyHint.File)] private String _nextScenePath;
+	[Export] TouchController _touchController;
+	public event Action<int> ScoreUpdated;
+	public event Action<OnScoreUpdatedEventArgs> HeatscoreUpdated;
 	
 	
 	public override void _Ready()
 	{
-		
-        _player.PlayerDeath += ResetLevel;
+		_touchController.Init(_levelSwipesCount);
+		GD.Print(typeof(Enemy).ToString());
+		var iscorables = FindChildren<IScorable>();
+		foreach (var scorable in iscorables)
+		{
+			scorable.ScoreChanged += OnScoreChanged;
+			
+		}
+		HeatscoreUpdated += _uiManager.GetHeatbar().UpdateHeatbar;
+		ScoreUpdated += _uiManager.GetScore().UpdateScore;
+		var enemies = iscorables.GetObjectsOfType<Enemy>();
+		_uiManager.InitializeUIManager(enemies,_touchController, _heatBarWearOffTime);
+		_player.PlayerDeath += ResetLevel;
     }
+
+	private void OnScoreChanged(OnScoreUpdatedEventArgs args)
+	{
+		if (_uiManager.GetHeatbar().ModifierActive)
+		{
+			_score += args.Score * _scoreModifier;
+		}
+		else
+		{
+			_score += args.Score;
+		}
+		ScoreUpdated?.Invoke(_score);
+		HeatscoreUpdated?.Invoke(args);
+	}
 
 	private async void ResetLevel() 
 	{
@@ -25,9 +59,20 @@ public partial class GameManager : Node
 		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
 	}
 
-	private void OnEnemyDeath(EnemyDiedEventArgs args)
+	private T[] FindChildren<T>()
 	{
-		
+		List<T> Tchildren = new List<T>();
+		var children = FindChildren("*").ToArray();
+		foreach (var child in children)
+		{
+			if (child is T tchild)
+			{
+				Tchildren.Add(tchild);
+			}
+		}
+		return Tchildren.ToArray<T>();
 	}
+	
+	
 	
 }

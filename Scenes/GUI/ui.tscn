@@ -21,6 +21,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 6
 
 [node name="Score" parent="GUI" instance=ExtResource("2_btr1m")]
+layout_mode = 0
 offset_left = 94.0
 offset_top = 19.0
 offset_right = 166.0
@@ -28,11 +29,11 @@ offset_bottom = 78.0
 
 [node name="HeatBar" parent="GUI" instance=ExtResource("6_jhbgw")]
 layout_mode = 1
-offset_left = -22.0
-offset_top = -168.0
-offset_right = -22.0
-offset_bottom = -168.0
-scale = Vector2(2, 2)
+offset_left = -31.0
+offset_top = -169.0
+offset_right = -31.0
+offset_bottom = -169.0
+scale = Vector2(2.655, 2)
 
 [node name="TextureButton" type="TextureButton" parent="GUI"]
 modulate = Color(1, 1, 1, 0.745098)

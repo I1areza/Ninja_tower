@@ -11,13 +11,13 @@ region = Rect2(2, 12, 29, 8)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6v78t"]
 shader = ExtResource("2_rdirv")
-shader_parameter/clip_x = 0.37
+shader_parameter/clip_x = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qx4wt"]
 atlas = ExtResource("1_27qpt")
 region = Rect2(13, 81, 17, 2)
 
-[node name="HeatBar" type="Control"]
+[node name="HeatBar" type="Control" node_paths=PackedStringArray("_progressBar")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,6 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.385, 1.16)
 script = ExtResource("1_f7jwu")
+_progressBar = NodePath("ProgressBar")
 
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
@@ -45,10 +46,10 @@ stretch_mode = 2
 texture_filter = 1
 material = SubResource("ShaderMaterial_6v78t")
 layout_mode = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 28.0
-offset_bottom = 7.0
+offset_left = 1.44404
+offset_top = -0.862069
+offset_right = 28.444
+offset_bottom = 9.13793
 texture = ExtResource("4_s6v1x")
 
 [node name="Foreground" type="TextureRect" parent="."]

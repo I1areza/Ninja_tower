@@ -7,12 +7,14 @@
 font = ExtResource("1_0282e")
 font_size = 64
 
-[node name="Score" type="Label"]
-offset_left = 3.0
-offset_top = 8.0
-offset_right = 43.0
-offset_bottom = 67.0
+[node name="Container" type="HBoxContainer"]
+offset_right = 72.0
+offset_bottom = 59.0
+alignment = 1
+script = ExtResource("2_cqo6o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
 text = "0000
 "
 label_settings = SubResource("LabelSettings_5bq67")
-script = ExtResource("2_cqo6o")

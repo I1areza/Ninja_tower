@@ -81,6 +81,7 @@ collision_mask = 2
 script = ExtResource("1_chy0h")
 _speed = 60.0
 _score = 40
+_heatbarProgress = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8.5)

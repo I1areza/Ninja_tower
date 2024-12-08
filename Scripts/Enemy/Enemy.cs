@@ -1,20 +1,23 @@
+using System;
 using Godot;
 using projectIgonnafinish.Scripts.Utils;
 
-public partial class Enemy : CharacterBody2D
+public partial class Enemy : CharacterBody2D, IScorable
 {
 	[Export] protected float _speed;
 	[Export] protected int _score;
-	[Export] protected int _heatbarProgress;
+	[Export] protected float _heatbarProgress;
 	private Area2D _area;
 	protected RayCast2D _raycast;
 	private float _gravity;
 	private Sprite2D _sprite2d;
 	protected Vector2 _direction = new Vector2(1, 0);
 	private Vector2 _velocity;
-
-	[Signal]
-	public delegate void EnemyDiedEventHandler(EnemyDiedEventArgs eventArgs);
+	private bool isCollided;
+	public event Action<OnScoreUpdatedEventArgs> ScoreChanged;
+	
+	///[Signal]
+	//public delegate void EnemyDiedEventHandler(OnScoreUpdatedEventArgs eventArgs);
 
 	public override void _Ready()
 	{
@@ -55,17 +58,22 @@ public partial class Enemy : CharacterBody2D
 
 	private void OnAreaEnteredByPlayer(Node2D body) 
 	{
+		_area.SetDisableMode(DisableModeEnum.Remove);
 		var player = body  as Player;
-		if (player != null) 
+		
+		if (player != null && !isCollided) 
 		{
 			RemoveEnemy();
-        }
-	}
-
+			isCollided = true;
+		}
+	} 
+	
 	private void RemoveEnemy() 
 	{
         QueueFree();
-		EmitSignal(SignalName.EnemyDied, new EnemyDiedEventArgs(_score, _heatbarProgress));
+        ScoreChanged(new OnScoreUpdatedEventArgs(_score, _heatbarProgress, this));
 
 	}
+
+	
 }

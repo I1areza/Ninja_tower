@@ -7,17 +7,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="timer is removed, score is added">
+    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="heatbar added">
+      <change afterPath="$PROJECT_DIR$/Scripts/Interfaces/IScorable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Utils/Utils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/progressbar_separated.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/progressbar_separated.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RemoteFollow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Enemy/enemy.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/Heatbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/Heatbar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/heatbar.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/heatbar.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/timer.tscn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/platform_path.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/platform_path.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/EnemyPresenter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/GUI/JumpsPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/JumpsPresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Platform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Platform.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Utils/EnemyDiedEventArgs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/TouchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/TouchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Utils/EnemyDiedEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +55,8 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Utils/EnemyDeletedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptSignalsGenerator/Enemy_ScriptSignals.generated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/2b/a3b544a4/DelegateUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23fd556cc1333e1428b66422f2ce9db97b81d8d173ceefda39d58c9b0146f2c/CharacterBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5be498bb2deb5aa9162565bdecd68f0beaea52/WeaponizedEnemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,6 +67,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bb1b701f3c7411227a9d2e09f965d857ff3e771557650c4f513e427d77c/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be9fe3a81257ea22292cffb5a1cb14e1dc3ba67821b28711e066bc1cab8/CollisionObject2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43c43ee5cdcf2c7c8ddb9366f75a76a3c61c77bf45ceac78721c269f3c360/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e9cb5f7a182def1b44b519e39f1c4d6523b9cc6fdfc20de726bd24bbfba4f5/TextureProgressBar.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -68,8 +81,12 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Executable.Editor.executor&quot;: &quot;Debug&quot;,
     &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.Player.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.project I gonna finish: Start in Godot.executor&quot;: &quot;Debug&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Attach to Process.3680:Godot_v4.3-stable_mono_win64.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -81,7 +98,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Resolution Scopes&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -96,8 +113,8 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="project I gonna finish: Start in Godot" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/NinjaTower.csproj" />
+    <configuration name="Player" type="LaunchSettings" factoryName=".NET Launch Settings Profile" singleton="false">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/project I gonna finish.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net6.0" />
       <option name="LAUNCH_PROFILE_NAME" value="Start in Godot" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -137,6 +154,12 @@
         <option name="Build Solution" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Executable.Player" />
+      <item itemvalue=".NET Executable.Editor" />
+      <item itemvalue=".NET Launch Settings Profile.Player" />
+      <item itemvalue="GdScript Start and Debug.Player GDScript" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,7 +182,12 @@
       <workItem from="1732496237560" duration="16561000" />
       <workItem from="1732627760889" duration="34112000" />
       <workItem from="1732970043234" duration="29457000" />
-      <workItem from="1733270426900" duration="12346000" />
+      <workItem from="1733270426900" duration="56218000" />
+      <workItem from="1733515378186" duration="2774000" />
+      <workItem from="1733523458861" duration="9028000" />
+      <workItem from="1733533303687" duration="26000" />
+      <workItem from="1733533421335" duration="1176000" />
+      <workItem from="1733535907973" duration="15141000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -209,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733274442432</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="heatbar added">
+      <option name="closed" value="true" />
+      <created>1733331826442</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733331826442</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,30 +272,18 @@
     <MESSAGE value="finalized lever+platform system&#10;minor outline shader tweaks" />
     <MESSAGE value="UI is moved to a separate scene" />
     <MESSAGE value="timer is removed, score is added" />
-    <option name="LAST_COMMIT_MESSAGE" value="timer is removed, score is added" />
+    <MESSAGE value="heatbar added" />
+    <option name="LAST_COMMIT_MESSAGE" value="heatbar added" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Scripts/Enemy/EnemyContainer.cs</url>
-          <line>21</line>
-          <properties documentPath="A:\Godot Projects\Ninja Tower\Scripts\Enemy\EnemyContainer.cs" containingFunctionPresentation="Method '_Ready'">
-            <startOffsets>
-              <option value="379" />
-            </startOffsets>
-            <endOffsets>
-              <option value="411" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Godot.GodotObject" memberName="NativePtr" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

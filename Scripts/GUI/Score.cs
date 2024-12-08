@@ -2,17 +2,18 @@ using Godot;
 using System;
 using projectIgonnafinish.Scripts.Utils;
 
-public partial class Score : Label
+public partial class Score : Control
 {
-	private int score;
-	// Called when the node enters the scene tree for the first time.
-	
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public void UpdateScore(EnemyDiedEventArgs args)
+	private Label _label; 
+	public override void _Ready()
 	{
-		score += args.Score;
-		Text = score.ToString();
+		_label = GetNode<Label>("Label");
+	}
+
+	public void UpdateScore(int score)
+	{
+		
+		_label.Text = score.ToString();
 	}
 	
 	

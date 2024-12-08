@@ -36,16 +36,15 @@ shader_parameter/flickering_speed = 3.0
 shader_parameter/minimal_flickering_alpha_ratio = 0.5
 shader_parameter/texture_alpha = 0.3
 
-[node name="Test Level" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player")]
+[node name="Test Level" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
 position = Vector2(1, 0)
 script = ExtResource("1_o3n0y")
 _uiManager = NodePath("UI")
+_levelSwipesCount = 10
 _player = NodePath("Player")
-_levelTimeLimit = 60
+_scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_1.tscn"
-
-[node name="TouchController" parent="." instance=ExtResource("2_asq2u")]
-_maximumSwipeCount = 10
+_touchController = NodePath("TouchController")
 
 [node name="Player" parent="." node_paths=PackedStringArray("_controller", "_trajectoryController") instance=ExtResource("3_wkdcu")]
 position = Vector2(121, 464)
@@ -59,6 +58,9 @@ _maximumSpeed = 500.0
 points = PackedVector2Array(0, 0)
 _touchController = NodePath("../../TouchController")
 _player = NodePath("..")
+
+[node name="TouchController" parent="." instance=ExtResource("2_asq2u")]
+_maximumSwipeCount = 10
 
 [node name="PowerUp2" parent="." node_paths=PackedStringArray("_effect") instance=ExtResource("5_bg6ya")]
 texture_filter = 4
@@ -129,9 +131,7 @@ curve = ExtResource("18_j5cy7")
 [node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("19_ah8yo")]
 loop = false
 
-[node name="UI" parent="." node_paths=PackedStringArray("_touchController", "_enemyContainer") instance=ExtResource("16_wj0w8")]
-_touchController = NodePath("../TouchController")
-_enemyContainer = NodePath("../EnemyContainer")
+[node name="UI" parent="." instance=ExtResource("16_wj0w8")]
 
 [node name="Portal Link2" parent="." node_paths=PackedStringArray("_portalA", "_portalB") instance=ExtResource("20_dhqax")]
 _portalA = NodePath("Portal")
