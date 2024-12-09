@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cnnj74yspyit1"]
+[gd_scene load_steps=26 format=4 uid="uid://cnnj74yspyit1"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_3c4ad"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="2_kviv5"]
@@ -23,6 +23,99 @@
 [ext_resource type="PackedScene" uid="uid://cdc6gvgfwvida" path="res://Scenes/PowerUps/test_power_up_component.tscn" id="23_qp6p1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
+
+[sub_resource type="Animation" id="Animation_k14bx"]
+resource_local_to_scene = true
+resource_name = "Coin"
+length = 2.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2.21914, 0.277392),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_j85t5"]
+resource_local_to_scene = true
+resource_name = "Coin"
+length = 2.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2.21914, 0.277392),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_fvcpq"]
+resource_local_to_scene = true
+resource_name = "Coin"
+length = 2.0
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 2),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2.21914, 0.277392),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2)]
+}
 
 [node name="Level 0" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
 position = Vector2(1, 0)
@@ -111,24 +204,24 @@ tile_set = ExtResource("8_ekee4")
 [node name="CoinsContainer" type="Node" parent="."]
 
 [node name="Coin" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(31, 364)
+position = Vector2(36, 343)
 _score = 10
-_heatbarProgress = 0.15
+_heatbarProgress = 0.1
+_isSwaying = true
+_animation = SubResource("Animation_k14bx")
 
 [node name="Coin2" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(47, 364)
+position = Vector2(57, 343)
 _score = 10
-_heatbarProgress = 0.15
+_heatbarProgress = 0.1
+_isSwaying = true
+_animation = SubResource("Animation_j85t5")
 
 [node name="Coin3" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(62, 364)
+position = Vector2(78, 343)
 _score = 10
-_heatbarProgress = 0.15
-
-[node name="Coin4" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(78, 364)
-_score = 10
-_heatbarProgress = 0.15
+_heatbarProgress = 0.1
+_animation = SubResource("Animation_fvcpq")
 
 [node name="EnemyContainer" parent="." instance=ExtResource("6_1wqfe")]
 

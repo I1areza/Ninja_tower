@@ -9,14 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="Iscorable &amp; coins">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/vertical_path.tres" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/vertical_path.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GUI/Heatbar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/Heatbar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/coin.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/coin.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/PowerUps/TestPoweUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PowerUps/TestPoweUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,20 +37,21 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/Enemy/Enemy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/2b/a3b544a4/DelegateUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Utils/Utils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23fd556cc1333e1428b66422f2ce9db97b81d8d173ceefda39d58c9b0146f2c/CharacterBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5be498bb2deb5aa9162565bdecd68f0beaea52/WeaponizedEnemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/69a2ad78b8912d6074b27457251869fab855bc/Enemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/77bca6ddb97d819c945b24c68c8325f97d8e44cfd553822a3b9d4f4f7e24421/PhysicsBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b6d40bd535f877bf97410721d7c67bcbdd11e9ba3dfea39914e2f8596ab8/Node2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8698b894b53cd5171b3378491a74bf53d9fc2c09723677bffbe5ed9a8b6bc42/Animation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a3f6e7387b868cf426d51eddd1816420d11dd139dc9bca244c32f1d22d8b2/GodotObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bb1b701f3c7411227a9d2e09f965d857ff3e771557650c4f513e427d77c/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be9fe3a81257ea22292cffb5a1cb14e1dc3ba67821b28711e066bc1cab8/CollisionObject2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43c43ee5cdcf2c7c8ddb9366f75a76a3c61c77bf45ceac78721c269f3c360/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e9cb5f7a182def1b44b519e39f1c4d6523b9cc6fdfc20de726bd24bbfba4f5/TextureProgressBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fa25a1cbcec6c8637269b3dde6318b97654e832/Coin_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -66,29 +63,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Executable.Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.Player.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.project I gonna finish: Start in Godot.executor&quot;: &quot;Debug&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Attach to Process.3680:Godot_v4.3-stable_mono_win64.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.50440526&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Resolution Scopes&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Editor.executor": "Debug",
+    ".NET Executable.Player.executor": "Debug",
+    ".NET Launch Settings Profile.Player.executor": "Debug",
+    ".NET Launch Settings Profile.project I gonna finish: Start in Godot.executor": "Debug",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Attach to Process.3680:Godot_v4.3-stable_mono_win64.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "XThreadsFramesViewSplitterKey": "0.50440526",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "SQL Resolution Scopes",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Player GDScript" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory" show_console_on_std_err="false" show_console_on_std_out="false" port="6006">
       <option name="address" value="127.0.0.1" />
@@ -149,6 +146,9 @@
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="" />
