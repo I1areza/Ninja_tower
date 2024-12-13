@@ -54,14 +54,13 @@ public partial class TrajectoryController : Line2D
 		}
 	}
 
-	private void OnSwipeStarted(Vector2 direction) 
+	private void OnSwipeStarted(Vector2 from, Vector2 to, float speed) 
 	{
         isTrajectoryShown = true;
-        var speed = _player.CalculateSpeed(direction);
-        _velocity = direction.Normalized() * speed;
+        _velocity = (from-to).Normalized() * speed;
     }
 
-	private void OnSwipeCompleted(Vector2 swipeVector) 
+	private void OnSwipeCompleted(Vector2 from, Vector2 to, float speed) 
 	{
         isTrajectoryShown = false;
     }

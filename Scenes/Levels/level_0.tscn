@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cnnj74yspyit1"]
+[gd_scene load_steps=27 format=4 uid="uid://cnnj74yspyit1"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_3c4ad"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="2_kviv5"]
@@ -20,6 +20,7 @@
 [ext_resource type="Curve2D" uid="uid://uq2am3pmbs3y" path="res://Resources/vertical_path.tres" id="15_nee8n"]
 [ext_resource type="Curve2D" uid="uid://do560wfnf0vu6" path="res://Resources/circular+path_correct.tres" id="16_8k2wf"]
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="16_theg8"]
+[ext_resource type="Texture2D" uid="uid://vhv2h4gqqqn" path="res://Assets/Sprites/touch screen circle small new.png" id="22_hdi1u"]
 [ext_resource type="PackedScene" uid="uid://cdc6gvgfwvida" path="res://Scenes/PowerUps/test_power_up_component.tscn" id="23_qp6p1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
@@ -131,14 +132,12 @@ _touchController = NodePath("TouchController")
 [node name="TouchController" parent="." instance=ExtResource("2_nr1sj")]
 _maximumSwipeCount = 10
 
-[node name="Player" parent="." node_paths=PackedStringArray("_controller", "_trajectoryController") instance=ExtResource("3_vy2c4")]
+[node name="Player" parent="." node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_vy2c4")]
 position = Vector2(121, 464)
 scale = Vector2(1.03268, 1)
 collision_mask = 14
-_controller = NodePath("../TouchController")
+_touchController = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
-_minumumSpeed = 250.0
-_maximumSpeed = 500.0
 
 [node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_6c1w6")]
 points = PackedVector2Array(0, 0)
@@ -260,4 +259,15 @@ curve = ExtResource("15_nee8n")
 [node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_theg8")]
 loop = false
 
+[node name="TouchScreenCircleSmallNew" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.552941)
+position = Vector2(123, 321)
+texture = ExtResource("22_hdi1u")
+
+[node name="TouchScreenCircleSmallNew2" type="Sprite2D" parent="TouchScreenCircleSmallNew"]
+modulate = Color(1, 1, 1, 0.670588)
+scale = Vector2(0.791667, 0.791667)
+texture = ExtResource("22_hdi1u")
+
 [editable path="UI"]
+[editable path="UI/GUI/HBoxContainer/JumpsLeft"]

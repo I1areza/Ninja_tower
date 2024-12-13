@@ -12,11 +12,11 @@ public partial class Coin : Area2D, IScorable
 	public event Action<OnScoreUpdatedEventArgs> ScoreChanged;
 	
 	private AnimationPlayer _animationPlayer;
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		BodyEntered += OnAreaEnteredByPlayer;
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		
 		#region Animation Update
 		//This code is required to create and assign an animation that won't be shared across multiple entities of coin node.
 		//see details https://github.com/godotengine/godot/issues/82421
@@ -31,8 +31,7 @@ public partial class Coin : Area2D, IScorable
 		_animationPlayer.Play($"{animLibName}/{animName}");
 		//each coin will start randomly between 0 and 1 second frame.
 		_animationPlayer.Advance(GD.RandRange(0f,1f));
-
-			#endregion
+		#endregion
 		
 		
 		

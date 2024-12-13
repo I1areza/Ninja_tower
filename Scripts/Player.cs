@@ -7,12 +7,8 @@ public partial class Player : CharacterBody2D
 {
     [Signal]
     public delegate void PlayerDeathEventHandler();
-    [Export] private TouchController _controller;
+    [Export] private TouchController _touchController;
     [Export] private TrajectoryController _trajectoryController;
-    [Export] private float _minumumSpeed = 10f;
-    [Export] private float _maximumSpeed = 100f;
-    [Export] private float _maximumSwipeDistance = 120f;
-    [Export] private float _minimumSwipeDistance = 30f;
     [Export(PropertyHint.Layers2DPhysics)] private int _deathLayer;
     [Export] private AnimationPlayer _animationPlayer;
     
@@ -24,8 +20,6 @@ public partial class Player : CharacterBody2D
     private Vector2 _to;
     private Vector2 _from;
     private Vector2 _velocity;
-    private float _speedRange;
-    private float _swipeRange;
     
     public bool IsMoving => _isMoving;
 
@@ -34,17 +28,7 @@ public partial class Player : CharacterBody2D
         _onDeathMeatParticles = GetNode<GpuParticles2D>("MeatParticles");
         _onDeathBoneParticles = GetNode<GpuParticles2D>("BonesParticles");
         _gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
-        _controller.SwipeCompleted += OnSwipeCompleted;
-        _speedRange = _maximumSpeed - _minumumSpeed;
-        if (_speedRange <= 0)
-        {
-            Debug.Assert(false, "Maximum speed should be more than the minimum speed");
-        }
-        _swipeRange = _maximumSwipeDistance - _minimumSwipeDistance;
-        if (_swipeRange <= 0)
-        {
-            Debug.Assert(false, "Maximum Swipe Range should be more than the minimum swipe range");
-        }
+        _touchController.SwipeCompleted += OnSwipeCompleted;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -72,36 +56,12 @@ public partial class Player : CharacterBody2D
         }
     }
 
-    private void OnSwipeCompleted(Vector2 direction)
+    private void OnSwipeCompleted(Vector2 from, Vector2 to, float speed)
     {
-        var speed = CalculateSpeed(direction);
-
         if (!_isMoving)
         {
-            _velocity = direction.Normalized() * speed;
+            _velocity = (from-to).Normalized() * speed;
             _isMoving = true;
-        }
-    }
-
-    public  float CalculateSpeed(Vector2 swipe) 
-    {
-        var swipe_distance = swipe.Length();
-        if (swipe_distance >= _maximumSwipeDistance)
-        {
-            return _maximumSpeed;
-        }
-        else if (swipe_distance > _minimumSwipeDistance && swipe_distance < _maximumSwipeDistance)
-        {
-            var swipe_proportion = (swipe_distance - _minimumSwipeDistance) / _swipeRange;
-            return swipe_proportion * _speedRange + _minumumSpeed;
-        }
-        else if (swipe_distance == _minimumSwipeDistance)
-        {
-            return _minumumSpeed;
-        }
-        else
-        {
-            return 0;
         }
     }
 
@@ -125,7 +85,7 @@ public partial class Player : CharacterBody2D
         await ToSignal(_animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
         GlobalPosition = globalPosition;
         _animationPlayer.Play("teleport_out");
-        _velocity = direction.Normalized() * _maximumSpeed;
+        _velocity = direction.Normalized() * _touchController.MaximumSpeed;
         _isMoving = true;
     }
     
