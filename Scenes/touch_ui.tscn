@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddnq7dj5ia6d8"]
+[gd_scene load_steps=4 format=3 uid="uid://brbdibbfmhevj"]
 
 [ext_resource type="Script" path="res://TouchControlUI.cs" id="1_r168r"]
 [ext_resource type="Texture2D" uid="uid://vhv2h4gqqqn" path="res://Assets/Sprites/touch screen circle small new.png" id="2_74gmp"]
@@ -8,7 +8,9 @@
 script = ExtResource("1_r168r")
 
 [node name="Outer Circle" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.415686)
 texture = ExtResource("2_74gmp")
 
-[node name="Inner Circle" type="Sprite2D" parent="Outer Circle"]
+[node name="Inner Circle" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.2)
 texture = ExtResource("3_kssy6")

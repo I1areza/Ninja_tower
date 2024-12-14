@@ -9,9 +9,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="Iscorable &amp; coins">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/touch_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/touch_ui.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/TouchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/TouchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouchControlUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TouchControlUI.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -288,23 +290,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Iscorable &amp; coins" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Scripts/Player.cs</url>
-          <line>36</line>
-          <properties documentPath="A:\Godot Projects\Ninja Tower\Scripts\Player.cs" containingFunctionPresentation="Method '_Ready'">
-            <startOffsets>
-              <option value="1246" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1293" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Godot.GodotObject" memberName="NativePtr" />

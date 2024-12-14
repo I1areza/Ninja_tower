@@ -8,6 +8,7 @@ public partial class TouchController: Node
 	[Export] private float _maximumSpeed = 500f;
 	[Export] private int _maximumSwipeCount;
 	
+	
     private int _currentSwipeCount;
     private bool _inProgress;
 	private bool _swipesEnabled = true;
@@ -29,6 +30,7 @@ public partial class TouchController: Node
 
 	public float MinimumSpeed => _minumumSpeed;
 	public float MaximumSpeed => _maximumSpeed;
+	
     public void Init(int swipes)
     {
 	    _maximumSwipeCount = swipes;
