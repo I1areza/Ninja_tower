@@ -25,7 +25,7 @@ public partial class JumpsPresenter : HBoxContainer
 		_label.Text = $"{jumpsLeft}/{_maximumJumps}";
     }
 
-	private void OnSwipceCompleted(Vector2 vector) 
+	private void OnSwipceCompleted(Vector2 from, Vector2 to, float speed) 
 	{
 		_currentJumps -= 1;
         UpdateJumps(_currentJumps);
