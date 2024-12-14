@@ -27,10 +27,9 @@ _nextScenePath = "res://Scenes/Levels/level_0.tscn"
 [node name="TouchController" parent="." instance=ExtResource("2_tco3t")]
 _maximumSwipeCount = 10
 
-[node name="Player" parent="." node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_iofgx")]
+[node name="Player" parent="." node_paths=PackedStringArray("_trajectoryController") instance=ExtResource("3_iofgx")]
 position = Vector2(74, 464)
 collision_mask = 238
-_touchController = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
 _deathLayer = 128
 

@@ -84,7 +84,7 @@ public partial class TouchController: Node
 		else if(@event is InputEventScreenDrag && InProgress) 
 		{
             var position = (@event as InputEventScreenDrag).Position;
-            EmitSignal(nameof(SignalName.SwipeStarted), from, position, CalculateSpeed(from-to));
+            EmitSignal(nameof(SignalName.SwipeStarted), from, position, CalculateSpeed(from-position));
         }
 		else if (@event is InputEventScreenTouch && @event.IsReleased() && InProgress) 
 		{

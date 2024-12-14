@@ -15,7 +15,7 @@ public partial class TrajectoryController : Line2D
 
 	private Vector2 _velocity;
 
-	private bool isTrajectoryShown = false;
+	private bool isTrajectoryShown;
 
     public override void _Ready()
 	{

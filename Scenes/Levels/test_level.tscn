@@ -46,13 +46,10 @@ _scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_1.tscn"
 _touchController = NodePath("TouchController")
 
-[node name="Player" parent="." node_paths=PackedStringArray("_controller", "_trajectoryController") instance=ExtResource("3_wkdcu")]
+[node name="Player" parent="." node_paths=PackedStringArray("_trajectoryController") instance=ExtResource("3_wkdcu")]
 position = Vector2(121, 464)
 collision_mask = 14
-_controller = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
-_minumumSpeed = 250.0
-_maximumSpeed = 500.0
 
 [node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_eogy4")]
 points = PackedVector2Array(0, 0)

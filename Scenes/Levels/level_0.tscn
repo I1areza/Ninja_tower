@@ -20,7 +20,7 @@
 [ext_resource type="Curve2D" uid="uid://uq2am3pmbs3y" path="res://Resources/vertical_path.tres" id="15_nee8n"]
 [ext_resource type="Curve2D" uid="uid://do560wfnf0vu6" path="res://Resources/circular+path_correct.tres" id="16_8k2wf"]
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="16_theg8"]
-[ext_resource type="Texture2D" uid="uid://vhv2h4gqqqn" path="res://Assets/Sprites/touch screen circle small new.png" id="22_hdi1u"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/touch screen circle small new.png" id="22_hdi1u"]
 [ext_resource type="PackedScene" uid="uid://cdc6gvgfwvida" path="res://Scenes/PowerUps/test_power_up_component.tscn" id="23_qp6p1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
