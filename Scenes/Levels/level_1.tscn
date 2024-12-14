@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b8yuu27d2sfmq"]
+[gd_scene load_steps=18 format=3 uid="uid://b8yuu27d2sfmq"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_honu2"]
 [ext_resource type="PackedScene" uid="uid://cw53c3b4bh7mw" path="res://Scenes/Player/touch_controller.tscn" id="2_tco3t"]
@@ -11,40 +11,37 @@
 [ext_resource type="PackedScene" uid="uid://cqryh3odl78ot" path="res://Scenes/Environment/walls.tscn" id="7_wgs7o"]
 [ext_resource type="PackedScene" uid="uid://nd0furmj0hnc" path="res://Scenes/Enemy/enemy_with_sword.tscn" id="8_dikcw"]
 [ext_resource type="PackedScene" uid="uid://b3r7hl8puulfd" path="res://Scenes/Environment/spikes.tscn" id="8_taed7"]
-[ext_resource type="PackedScene" uid="uid://1ujlvxjys8w5" path="res://Scenes/timer.tscn" id="9_012yk"]
 [ext_resource type="PackedScene" uid="uid://bj2tku6nn6f0c" path="res://Scenes/Environment/floor.tscn" id="9_l4ic5"]
-[ext_resource type="Texture2D" uid="uid://cxbuvucyp0hji" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/pause.png" id="10_1xkmd"]
 [ext_resource type="PackedScene" uid="uid://cjwfxyya421lx" path="res://Scenes/Environment/background_layer_1.tscn" id="10_7lveq"]
 [ext_resource type="PackedScene" uid="uid://srkr48wrn2t7" path="res://Scenes/Environment/background_layer_0.tscn" id="11_ifqgo"]
-[ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="11_tsigb"]
-[ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="12_nf1dx"]
 [ext_resource type="Curve2D" uid="uid://uq2am3pmbs3y" path="res://Resources/vertical_path.tres" id="15_jq7d0"]
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="16_aujet"]
+[ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="17_xyf83"]
 
-[node name="Level 1" type="Node2D" node_paths=PackedStringArray("_levelTimer", "_player")]
+[node name="Level 1" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player")]
 position = Vector2(1, 0)
 script = ExtResource("1_honu2")
-_levelTimer = NodePath("UI/GUI/Timer")
+_heatBarWearOffTime = 10
+_uiManager = NodePath("UI")
+_levelSwipesCount = 10
 _player = NodePath("Player")
-_levelTimeLimit = 60
+_scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_0.tscn"
 
-[node name="TouchController" parent="." instance=ExtResource("2_tco3t")]
-_maximumSwipeCount = 10
-
 [node name="Player" parent="." node_paths=PackedStringArray("_controller", "_trajectoryController") instance=ExtResource("3_iofgx")]
-position = Vector2(74, 464)
+position = Vector2(77, 464)
 collision_mask = 238
 _controller = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
-_minumumSpeed = 250.0
-_maximumSpeed = 500.0
 _deathLayer = 128
 
 [node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_2v8kr")]
 points = PackedVector2Array(0, 0)
 _touchController = NodePath("../../TouchController")
 _player = NodePath("..")
+
+[node name="TouchController" parent="." instance=ExtResource("2_tco3t")]
+_maximumSwipeCount = 10
 
 [node name="TileMaps" type="Node2D" parent="."]
 
@@ -84,61 +81,4 @@ curve = ExtResource("15_jq7d0")
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="GUI" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-mouse_default_cursor_shape = 6
-
-[node name="TextureButton" type="TextureButton" parent="UI/GUI"]
-modulate = Color(1, 1, 1, 0.745098)
-texture_filter = 1
-layout_direction = 1
-layout_mode = 1
-offset_right = 18.0
-offset_bottom = 18.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("10_1xkmd")
-stretch_mode = 3
-
-[node name="Timer" parent="UI/GUI" instance=ExtResource("9_012yk")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 0.0
-offset_right = 20.0
-offset_bottom = 59.0
-grow_horizontal = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/GUI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -71.0
-offset_right = -35.0
-offset_bottom = 42.0
-grow_horizontal = 0
-scale = Vector2(2, 2)
-size_flags_vertical = 4
-theme_override_constants/separation = 0
-
-[node name="JumpsLeft" parent="UI/GUI/VBoxContainer" node_paths=PackedStringArray("_touchController") instance=ExtResource("11_tsigb")]
-layout_direction = 1
-layout_mode = 2
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_touchController = NodePath("../../../../TouchController")
-
-[node name="EnemiesLeft" parent="UI/GUI/VBoxContainer" node_paths=PackedStringArray("_enemyContainer") instance=ExtResource("12_nf1dx")]
-layout_mode = 2
-size_flags_horizontal = 0
-_enemyContainer = NodePath("../../../../EnemyContainer")
+[node name="UI" parent="." instance=ExtResource("17_xyf83")]

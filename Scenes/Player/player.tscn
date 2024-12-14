@@ -147,7 +147,6 @@ collision_mask = 286
 floor_block_on_wall = false
 platform_floor_layers = 4294967040
 script = ExtResource("1_mnh8c")
-_maximumSpeed = 15.0
 _deathLayer = 64
 _animationPlayer = NodePath("AnimationPlayer")
 

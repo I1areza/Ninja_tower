@@ -39,6 +39,7 @@ shader_parameter/texture_alpha = 0.3
 [node name="Test Level" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
 position = Vector2(1, 0)
 script = ExtResource("1_o3n0y")
+_heatBarWearOffTime = 10
 _uiManager = NodePath("UI")
 _levelSwipesCount = 10
 _player = NodePath("Player")
@@ -51,8 +52,6 @@ position = Vector2(121, 464)
 collision_mask = 14
 _controller = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
-_minumumSpeed = 250.0
-_maximumSpeed = 500.0
 
 [node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_eogy4")]
 points = PackedVector2Array(0, 0)

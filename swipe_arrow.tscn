@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bahgyy31cftk4"]
+
+[ext_resource type="Texture2D" uid="uid://dq36f2ihe2uca" path="res://Assets/Sprites/swipe sprite.png" id="1_10t3q"]
+[ext_resource type="Texture2D" uid="uid://bbp5cd57ijhy8" path="res://Assets/Sprites/swipe arrow.png" id="2_ye6kd"]
+
+[node name="SwipeArrow" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(15, 16)
+points = PackedVector2Array(0, 0, 50, 50)
+texture = ExtResource("1_10t3q")
+texture_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ye6kd")
