@@ -1,16 +1,54 @@
-[gd_scene load_steps=7 format=3 uid="uid://j2sbrm62e20f"]
+[gd_scene load_steps=12 format=3 uid="uid://j2sbrm62e20f"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/UIManager.cs" id="1_65l0g"]
 [ext_resource type="PackedScene" uid="uid://dtlnmtoa4j14b" path="res://Scenes/GUI/Score.tscn" id="2_btr1m"]
 [ext_resource type="Texture2D" uid="uid://cxbuvucyp0hji" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/pause.png" id="2_g3g4e"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/vignette.gdshader" id="2_thvlo"]
 [ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="4_orqb5"]
 [ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="5_47pro"]
 [ext_resource type="PackedScene" uid="uid://dv6tcfjto1emf" path="res://Scenes/GUI/heatbar.tscn" id="6_jhbgw"]
+[ext_resource type="PackedScene" uid="uid://broayf1pl3t56" path="res://Scenes/GUI/vignette.tscn" id="8_x2n6o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlg3p"]
+shader = ExtResource("2_thvlo")
+shader_parameter/player_position = Vector2(0.65, 0.75)
+shader_parameter/color = Color(0.115946, 0.114944, 0.121094, 1)
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 0.56
+shader_parameter/SOFTNESS = 0.355
+
+[sub_resource type="Shader" id="Shader_w6s01"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color :  source_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfd0r"]
+resource_local_to_scene = true
+shader = SubResource("Shader_w6s01")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0.120475, 0.118835, 0.128906, 1)
+shader_parameter/MULTIPLIER = 1.9
+shader_parameter/SCALE = 7.0
+shader_parameter/SOFTNESS = 0.21
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_65l0g")
 
 [node name="GUI" type="Control" parent="."]
+top_level = true
+material = SubResource("ShaderMaterial_tlg3p")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +57,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 6
+
+[node name="Vignette" parent="GUI" instance=ExtResource("8_x2n6o")]
+material = SubResource("ShaderMaterial_lfd0r")
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 2.0
+offset_right = 240.0
+offset_bottom = 482.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Score" parent="GUI" instance=ExtResource("2_btr1m")]
 layout_mode = 0

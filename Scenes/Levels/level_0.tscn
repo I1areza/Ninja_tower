@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cnnj74yspyit1"]
+[gd_scene load_steps=29 format=4 uid="uid://cnnj74yspyit1"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_3c4ad"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="2_kviv5"]
@@ -118,8 +118,33 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 2)]
 }
 
+[sub_resource type="Shader" id="Shader_w6s01"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color :  source_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfd0r"]
+resource_local_to_scene = true
+shader = SubResource("Shader_w6s01")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0.120475, 0.118835, 0.128906, 1)
+shader_parameter/MULTIPLIER = 1.9
+shader_parameter/SCALE = 7.0
+shader_parameter/SOFTNESS = 0.21
+
 [node name="Level 0" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
-position = Vector2(1, 0)
 script = ExtResource("1_3c4ad")
 _heatBarWearOffTime = 10
 _uiManager = NodePath("UI")
@@ -133,7 +158,7 @@ _touchController = NodePath("TouchController")
 _maximumSwipeCount = 10
 
 [node name="Player" parent="." node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_vy2c4")]
-position = Vector2(121, 464)
+position = Vector2(122, 464)
 scale = Vector2(1.03268, 1)
 collision_mask = 14
 _touchController = NodePath("../TouchController")
@@ -240,6 +265,13 @@ position = Vector2(120, 111)
 
 [node name="UI" parent="." instance=ExtResource("2_kviv5")]
 
+[node name="Vignette" parent="UI/GUI" index="0"]
+material = SubResource("ShaderMaterial_lfd0r")
+offset_top = 0.0
+offset_right = 241.0
+offset_bottom = 481.0
+mouse_filter = 2
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
@@ -259,9 +291,9 @@ curve = ExtResource("15_nee8n")
 [node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_theg8")]
 loop = false
 
-[node name="Touch UI" parent="." node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("22_pwc81")]
+[node name="Touch UI" parent="." node_paths=PackedStringArray("_touchController") instance=ExtResource("22_pwc81")]
+position = Vector2(-1, 0)
 _touchController = NodePath("../TouchController")
-_player = NodePath("../Player")
 
 [editable path="UI"]
 [editable path="UI/GUI/HBoxContainer/JumpsLeft"]

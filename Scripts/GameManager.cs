@@ -7,9 +7,6 @@ using projectIgonnafinish.Scripts.Utils;
 
 public partial class GameManager : Node
 {
-
-	
-	
 	private int _score;
 	[Export] private int _heatBarWearOffTime;
 	[Export] private UIManager _uiManager;
@@ -34,8 +31,8 @@ public partial class GameManager : Node
 		HeatscoreUpdated += _uiManager.GetHeatbar().UpdateHeatbar;
 		ScoreUpdated += _uiManager.GetScore().UpdateScore;
 		var enemies = iscorables.GetObjectsOfType<Enemy>();
-		_uiManager.InitializeUIManager(enemies,_touchController, _heatBarWearOffTime);
-		_player.PlayerDeath += ResetLevel;
+		_uiManager.InitializeUIManager(enemies,_touchController, _heatBarWearOffTime, _player);
+		_player.PlayerDied += ResetLevel;
     }
 
 	private void OnScoreChanged(OnScoreUpdatedEventArgs args)
@@ -52,7 +49,11 @@ public partial class GameManager : Node
 		HeatscoreUpdated?.Invoke(args);
 	}
 
-	private async void ResetLevel() 
+	private void ResetLevel()
+	{
+		ResetLevel(new Vector2());
+	}
+	private async void ResetLevel(Vector2 point) 
 	{
         await ToSignal(GetTree().CreateTimer(3), SceneTreeTimer.SignalName.Timeout);
 		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);

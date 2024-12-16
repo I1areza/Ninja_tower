@@ -3,7 +3,6 @@ using Godot;
 public partial class TouchControlUI : Node2D
 {
 	[Export] private TouchController _touchController;
-	[Export] private Player _player;
 
 	private Sprite2D _innerCircle;
 	private Sprite2D _outerCircle;

@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using System.Diagnostics;
 
@@ -5,8 +6,6 @@ using System.Diagnostics;
 [GlobalClass]
 public partial class Player : CharacterBody2D
 {
-    [Signal]
-    public delegate void PlayerDeathEventHandler();
     [Export] private TouchController _touchController;
     [Export] private TrajectoryController _trajectoryController;
     [Export(PropertyHint.Layers2DPhysics)] private int _deathLayer;
@@ -20,6 +19,9 @@ public partial class Player : CharacterBody2D
     private Vector2 _to;
     private Vector2 _from;
     private Vector2 _velocity;
+    private bool _hasSwipes = true;
+
+    public event Action<Vector2> PlayerDied;
     
     public bool IsMoving => _isMoving;
 
@@ -29,6 +31,12 @@ public partial class Player : CharacterBody2D
         _onDeathBoneParticles = GetNode<GpuParticles2D>("BonesParticles");
         _gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
         _touchController.SwipeCompleted += OnSwipeCompleted;
+        _touchController.NoSwipesLeft += OnNoSwipeLeft;
+    }
+
+    private void OnNoSwipeLeft()
+    {
+        _hasSwipes = false;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -50,6 +58,11 @@ public partial class Player : CharacterBody2D
                         }
                     }
                     _isMoving = false;
+                    if (_hasSwipes == false)
+                    {
+                        PlayerDied(GetGlobalTransform().Origin);
+                        //
+                    }
                     _velocity = Vector2.Zero;
                 }
             }
@@ -72,7 +85,7 @@ public partial class Player : CharacterBody2D
         GetNode<Sprite2D>("Sprite2D").Visible = false;
         CollisionLayer = 0;
         _onDeathMeatParticles.Finished += QueueFree;
-        EmitSignal(SignalName.PlayerDeath);
+        PlayerDied?.Invoke(GetGlobalTransform().Origin);
         
     }
 

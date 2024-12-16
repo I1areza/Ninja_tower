@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b1k887jy10n2o"]
+[gd_scene load_steps=27 format=4 uid="uid://b1k887jy10n2o"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_o3n0y"]
 [ext_resource type="PackedScene" uid="uid://cw53c3b4bh7mw" path="res://Scenes/Player/touch_controller.tscn" id="2_asq2u"]
@@ -14,6 +14,7 @@
 [ext_resource type="TileSet" uid="uid://bdmvoegtjpsm4" path="res://Tilesets/BackGroundTileSet.tres" id="12_k211c"]
 [ext_resource type="PackedScene" uid="uid://cdy3a17o5vxcs" path="res://Scenes/Enemy/enemy_container.tscn" id="13_q725d"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="16_wj0w8"]
+[ext_resource type="PackedScene" uid="uid://brbdibbfmhevj" path="res://Scenes/touch_ui.tscn" id="17_nhjwo"]
 [ext_resource type="Curve2D" uid="uid://uq2am3pmbs3y" path="res://Resources/vertical_path.tres" id="18_j5cy7"]
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="19_ah8yo"]
 [ext_resource type="PackedScene" uid="uid://c7fdjo3fclc2a" path="res://Scenes/portal_link.tscn" id="20_dhqax"]
@@ -47,9 +48,10 @@ _scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_1.tscn"
 _touchController = NodePath("TouchController")
 
-[node name="Player" parent="." node_paths=PackedStringArray("_trajectoryController") instance=ExtResource("3_wkdcu")]
+[node name="Player" parent="." node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_wkdcu")]
 position = Vector2(121, 464)
 collision_mask = 14
+_touchController = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
 
 [node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_eogy4")]
@@ -128,6 +130,10 @@ curve = ExtResource("18_j5cy7")
 
 [node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("19_ah8yo")]
 loop = false
+
+[node name="Touch UI" parent="." node_paths=PackedStringArray("_touchController") instance=ExtResource("17_nhjwo")]
+position = Vector2(-1, 0)
+_touchController = NodePath("../TouchController")
 
 [node name="UI" parent="." instance=ExtResource("16_wj0w8")]
 

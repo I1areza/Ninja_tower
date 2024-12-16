@@ -1,3 +1,4 @@
+using System;
 using Godot; 
 [GlobalClass]
 public partial class TouchController: Node
@@ -21,8 +22,8 @@ public partial class TouchController: Node
 	[Signal]
 	public delegate void SwipeStartedEventHandler(Vector2 from, Vector2 to, float speed);
 	
-    [Signal]
-    public delegate void NoSwipesLeftEventHandler();
+    
+    public Action  NoSwipesLeft;
 
 	public int MaximumSwipeCount => _maximumSwipeCount;
 
@@ -69,13 +70,14 @@ public partial class TouchController: Node
     {
 		if(_currentSwipeCount <= 0) 
 		{
-			
-			if (_swipesEnabled) 
+
+			if (_swipesEnabled)
 			{
 				_swipesEnabled = false;
-				EmitSignal(nameof(SignalName.NoSwipesLeft));
-            }
-            return;
+				NoSwipesLeft?.Invoke();
+			}
+
+			return;
 		}
 		if (@event is InputEventScreenTouch && @event.IsPressed() && !InProgress)
 		{
