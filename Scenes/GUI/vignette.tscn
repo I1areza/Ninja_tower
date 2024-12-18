@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://broayf1pl3t56"]
+[gd_scene load_steps=8 format=3 uid="uid://broayf1pl3t56"]
 
 [ext_resource type="Shader" path="res://Scripts/Shaders/vignette.gdshader" id="1_lmcnc"]
 [ext_resource type="Script" path="res://Scripts/GUI/Vignette.cs" id="2_50cmv"]
@@ -29,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_o8cjo"]
 resource_name = "Vignette"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,16 +37,33 @@ tracks/0/path = NodePath(".:material:shader_parameter/SCALE")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.73333, 2.96667),
+"times": PackedFloat32Array(0, 1.73333, 2),
 "transitions": PackedFloat32Array(0.351198, 0.329877, 1),
 "update": 0,
-"values": [7.0, 0.8, 0.0]
+"values": [10.0, 0.8, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rvwcy"]
+resource_name = "FadeOut"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/SCALE")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7, 2.5),
+"transitions": PackedFloat32Array(0.329877, 0.297303, 1),
+"update": 0,
+"values": [0.0, 0.8, 10.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6srl4"]
 _data = {
-"RESET": SubResource("Animation_qf3ky"),
-"Vignette": SubResource("Animation_o8cjo")
+"FadeIn": SubResource("Animation_o8cjo"),
+"FadeOut": SubResource("Animation_rvwcy"),
+"RESET": SubResource("Animation_qf3ky")
 }
 
 [node name="Vignette" type="ColorRect"]
@@ -59,6 +76,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.993806, 1.00635)
 script = ExtResource("2_50cmv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

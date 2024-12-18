@@ -19,6 +19,7 @@ public partial class GameManager : Node
 	public event Action<OnScoreUpdatedEventArgs> HeatscoreUpdated;
 	
 	
+	
 	public override void _Ready()
 	{
 		_touchController.Init(_levelSwipesCount);

@@ -8,21 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="Minor changes to control flow, vents. Added the vignette effect on death.">
-      <change afterPath="$PROJECT_DIR$/Scenes/GUI/vignette.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/GUI/Vignette.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/Shaders/vignette.gdshader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2024_3_20_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/shelf/Uncommitted_changes_before_Update_at_12_8_2024_3_20_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/vignette.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/vignette.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Coin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/GUI/Vignette.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Vignette.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/TouchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/TouchController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TouchControlUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TouchControlUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,10 +46,12 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/Coin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Utils/Utils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptMethodsGenerator/ExitLevelDoor_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptSignalsGenerator/TouchController_ScriptSignals.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23fd556cc1333e1428b66422f2ce9db97b81d8d173ceefda39d58c9b0146f2c/CharacterBody2D.cs" root0="FORCE_HIGHLIGHTING" />
@@ -65,6 +61,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b6d40bd535f877bf97410721d7c67bcbdd11e9ba3dfea39914e2f8596ab8/Node2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8698b894b53cd5171b3378491a74bf53d9fc2c09723677bffbe5ed9a8b6bc42/Animation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a3f6e7387b868cf426d51eddd1816420d11dd139dc9bca244c32f1d22d8b2/GodotObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b97bc0d8f9d0e6f0d182d0876f262bd728eea2578d4f1e943f6c38e41abb2fb/MulticastDelegate.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bb1b701f3c7411227a9d2e09f965d857ff3e771557650c4f513e427d77c/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be9fe3a81257ea22292cffb5a1cb14e1dc3ba67821b28711e066bc1cab8/CollisionObject2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e43c43ee5cdcf2c7c8ddb9366f75a76a3c61c77bf45ceac78721c269f3c360/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -193,7 +190,7 @@
       <workItem from="1733533303687" duration="26000" />
       <workItem from="1733533421335" duration="1176000" />
       <workItem from="1733535907973" duration="17598000" />
-      <workItem from="1734305461803" duration="2161000" />
+      <workItem from="1734305461803" duration="38149000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -275,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734143584260</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Minor changes to control flow, vents. Added the vignette effect on death.">
+      <option name="closed" value="true" />
+      <created>1734308497846</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734308497846</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +342,23 @@
     <option name="LAST_COMMIT_MESSAGE" value="Minor changes to control flow, vents. Added the vignette effect on death." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Scripts/GUI/UIManager.cs</url>
+          <line>17</line>
+          <properties documentPath="A:\Godot Projects\Ninja Tower\Scripts\GUI\UIManager.cs" containingFunctionPresentation="Method '_Ready'">
+            <startOffsets>
+              <option value="554" />
+            </startOffsets>
+            <endOffsets>
+              <option value="597" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Godot.GodotObject" memberName="NativePtr" />

@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8yuu27d2sfmq"]
+[gd_scene load_steps=20 format=4 uid="uid://b8yuu27d2sfmq"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_honu2"]
+[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_osnfu"]
 [ext_resource type="PackedScene" uid="uid://cw53c3b4bh7mw" path="res://Scenes/Player/touch_controller.tscn" id="2_tco3t"]
 [ext_resource type="PackedScene" uid="uid://kr4sv17ctllg" path="res://Scenes/Player/player.tscn" id="3_iofgx"]
 [ext_resource type="PackedScene" uid="uid://bx1cr6rfsvls0" path="res://Scenes/trajectory_controller.tscn" id="4_2v8kr"]
@@ -12,13 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://nd0furmj0hnc" path="res://Scenes/Enemy/enemy_with_sword.tscn" id="8_dikcw"]
 [ext_resource type="PackedScene" uid="uid://b3r7hl8puulfd" path="res://Scenes/Environment/spikes.tscn" id="8_taed7"]
 [ext_resource type="PackedScene" uid="uid://bj2tku6nn6f0c" path="res://Scenes/Environment/floor.tscn" id="9_l4ic5"]
-[ext_resource type="PackedScene" uid="uid://cjwfxyya421lx" path="res://Scenes/Environment/background_layer_1.tscn" id="10_7lveq"]
 [ext_resource type="PackedScene" uid="uid://srkr48wrn2t7" path="res://Scenes/Environment/background_layer_0.tscn" id="11_ifqgo"]
 [ext_resource type="Curve2D" uid="uid://uq2am3pmbs3y" path="res://Resources/vertical_path.tres" id="15_jq7d0"]
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="16_aujet"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="17_xyf83"]
+[ext_resource type="PackedScene" uid="uid://belbqe7he0elf" path="res://Scenes/exit_level_door.tscn" id="18_ggu6b"]
+[ext_resource type="PackedScene" uid="uid://brbdibbfmhevj" path="res://Scenes/touch_ui.tscn" id="19_hcxwm"]
 
-[node name="Level 1" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player")]
+[node name="Level" type="Node" node_paths=PackedStringArray("_player", "_exitLevelDoor")]
+script = ExtResource("1_osnfu")
+_player = NodePath("GameManager/Player")
+_exitLevelDoor = NodePath("GameManager/Exit Level Door")
+
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
 position = Vector2(1, 0)
 script = ExtResource("1_honu2")
 _heatBarWearOffTime = 10
@@ -27,57 +34,65 @@ _levelSwipesCount = 10
 _player = NodePath("Player")
 _scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_0.tscn"
+_touchController = NodePath("TouchController")
 
-[node name="Player" parent="." node_paths=PackedStringArray("_trajectoryController") instance=ExtResource("3_iofgx")]
+[node name="Player" parent="GameManager" node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_iofgx")]
 position = Vector2(77, 464)
 collision_mask = 238
+_touchController = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
 _deathLayer = 128
 
-[node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_2v8kr")]
+[node name="TrajectoryController" parent="GameManager/Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_2v8kr")]
 points = PackedVector2Array(0, 0)
 _touchController = NodePath("../../TouchController")
 _player = NodePath("..")
 
-[node name="TouchController" parent="." instance=ExtResource("2_tco3t")]
+[node name="TouchController" parent="GameManager" instance=ExtResource("2_tco3t")]
 _maximumSwipeCount = 10
 
-[node name="TileMaps" type="Node2D" parent="."]
+[node name="TileMaps" type="Node2D" parent="GameManager"]
 
-[node name="Environment" parent="TileMaps" instance=ExtResource("5_hubvy")]
+[node name="Environment" parent="GameManager/TileMaps" instance=ExtResource("5_hubvy")]
+tile_map_data = PackedByteArray("AAALABwAAAAFAAkAAAALABsAAAAFAAkAAAALABoAAAAFAAkAAAALABkAAAAFAAgAAAADABAAAAAKAAwAAAAMAA4AAAAGAAwAAAADABwAAAALAAwAAAAKABgAAAAKAAwAAAADAA8AAAAKAAwAAAAKAA4AAAAEAAwAAAALAA4AAAAFAAwAAAAEAAsAAAAHAAoAAAANAAwAAAAKAAoAAAA=")
 
-[node name="Platforms" parent="TileMaps" instance=ExtResource("6_2t1q3")]
+[node name="Platforms" parent="GameManager/TileMaps" instance=ExtResource("6_2t1q3")]
 
-[node name="Walls" parent="TileMaps" instance=ExtResource("7_wgs7o")]
+[node name="Walls" parent="GameManager/TileMaps" instance=ExtResource("7_wgs7o")]
 
-[node name="Spikes" parent="TileMaps" instance=ExtResource("8_taed7")]
+[node name="Spikes" parent="GameManager/TileMaps" instance=ExtResource("8_taed7")]
 
-[node name="Floor" parent="TileMaps" instance=ExtResource("9_l4ic5")]
+[node name="Floor" parent="GameManager/TileMaps" instance=ExtResource("9_l4ic5")]
 
-[node name="Background_layer_1" parent="TileMaps" instance=ExtResource("10_7lveq")]
+[node name="Background_layer_0" parent="GameManager/TileMaps" instance=ExtResource("11_ifqgo")]
 
-[node name="Background_layer_0" parent="TileMaps" instance=ExtResource("11_ifqgo")]
+[node name="EnemyContainer" parent="GameManager" instance=ExtResource("6_s8owt")]
 
-[node name="EnemyContainer" parent="." instance=ExtResource("6_s8owt")]
-
-[node name="Enemy2" parent="EnemyContainer" instance=ExtResource("8_dikcw")]
+[node name="Enemy2" parent="GameManager/EnemyContainer" instance=ExtResource("8_dikcw")]
 position = Vector2(169, 205)
 
-[node name="Enemy" parent="EnemyContainer" instance=ExtResource("7_73ood")]
+[node name="Enemy" parent="GameManager/EnemyContainer" instance=ExtResource("7_73ood")]
 position = Vector2(45, 332)
 
-[node name="Enemy3" parent="EnemyContainer" instance=ExtResource("7_73ood")]
+[node name="Enemy3" parent="GameManager/EnemyContainer" instance=ExtResource("7_73ood")]
 position = Vector2(145, 396)
 
-[node name="Aerial EnemyContainer" type="Node" parent="."]
+[node name="Aerial EnemyContainer" type="Node" parent="GameManager"]
 
-[node name="ArealEnemyPath2" type="Path2D" parent="Aerial EnemyContainer"]
+[node name="ArealEnemyPath2" type="Path2D" parent="GameManager/Aerial EnemyContainer"]
 position = Vector2(128, 259)
 curve = ExtResource("15_jq7d0")
 
-[node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_aujet")]
+[node name="Aerial Enemy" parent="GameManager/Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_aujet")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="GameManager"]
 anchor_mode = 0
 
-[node name="UI" parent="." instance=ExtResource("17_xyf83")]
+[node name="UI" parent="GameManager" instance=ExtResource("17_xyf83")]
+
+[node name="Exit Level Door" parent="GameManager" instance=ExtResource("18_ggu6b")]
+position = Vector2(65, 96)
+
+[node name="Touch UI" parent="GameManager" node_paths=PackedStringArray("_touchController") instance=ExtResource("19_hcxwm")]
+position = Vector2(-1, 0)
+_touchController = NodePath("../TouchController")

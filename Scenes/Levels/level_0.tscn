@@ -1,6 +1,7 @@
 [gd_scene load_steps=29 format=4 uid="uid://cnnj74yspyit1"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_3c4ad"]
+[ext_resource type="Script" path="res://Scripts/Level.cs" id="1_t4u28"]
 [ext_resource type="PackedScene" uid="uid://j2sbrm62e20f" path="res://Scenes/GUI/ui.tscn" id="2_kviv5"]
 [ext_resource type="PackedScene" uid="uid://cw53c3b4bh7mw" path="res://Scenes/Player/touch_controller.tscn" id="2_nr1sj"]
 [ext_resource type="PackedScene" uid="uid://kr4sv17ctllg" path="res://Scenes/Player/player.tscn" id="3_vy2c4"]
@@ -22,8 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c3jx1pwyiowuh" path="res://Scenes/Enemy/aerial_enemy_ghost.tscn" id="16_theg8"]
 [ext_resource type="PackedScene" uid="uid://brbdibbfmhevj" path="res://Scenes/touch_ui.tscn" id="22_pwc81"]
 [ext_resource type="PackedScene" uid="uid://cdc6gvgfwvida" path="res://Scenes/PowerUps/test_power_up_component.tscn" id="23_qp6p1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
+[ext_resource type="PackedScene" uid="uid://belbqe7he0elf" path="res://Scenes/exit_level_door.tscn" id="24_qly0t"]
 
 [sub_resource type="Animation" id="Animation_k14bx"]
 resource_local_to_scene = true
@@ -118,33 +118,14 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 2)]
 }
 
-[sub_resource type="Shader" id="Shader_w6s01"]
-resource_local_to_scene = true
-code = "shader_type canvas_item;
-uniform vec2 player_position;
-uniform vec4 color :  source_color = vec4(0.305, 0.298, 0.341,1);
+[sub_resource type="CircleShape2D" id="CircleShape2D_fq43g"]
 
-uniform float MULTIPLIER = 0.56;
-uniform float SCALE = 0.5;
-uniform float SOFTNESS = 0.45;
+[node name="Level 0" type="Node" node_paths=PackedStringArray("_player", "_exitLevelDoor")]
+script = ExtResource("1_t4u28")
+_player = NodePath("GameManager/Player")
+_exitLevelDoor = NodePath("GameManager/Exit Level Door")
 
-void fragment(){
-	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
-	val = val / SCALE;
-	float vignette = smoothstep(0.2, SOFTNESS, val);
-	COLOR = vec4(color.rgb , vignette );
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lfd0r"]
-resource_local_to_scene = true
-shader = SubResource("Shader_w6s01")
-shader_parameter/player_position = Vector2(0.5, 0.5)
-shader_parameter/color = Color(0.120475, 0.118835, 0.128906, 1)
-shader_parameter/MULTIPLIER = 1.9
-shader_parameter/SCALE = 7.0
-shader_parameter/SOFTNESS = 0.21
-
-[node name="Level 0" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
 script = ExtResource("1_3c4ad")
 _heatBarWearOffTime = 10
 _uiManager = NodePath("UI")
@@ -154,34 +135,74 @@ _scoreModifier = 2
 _nextScenePath = "res://Scenes/Levels/level_1.tscn"
 _touchController = NodePath("TouchController")
 
-[node name="TouchController" parent="." instance=ExtResource("2_nr1sj")]
+[node name="EnemyContainer" parent="GameManager" instance=ExtResource("6_1wqfe")]
+
+[node name="Enemy" parent="GameManager/EnemyContainer" instance=ExtResource("7_w875n")]
+position = Vector2(155, 367)
+
+[node name="Enemy2" parent="GameManager/EnemyContainer" instance=ExtResource("8_68oie")]
+position = Vector2(203, 205)
+_speed = 60.0
+_heatbarProgress = 0.3
+
+[node name="Enemy3" parent="GameManager/EnemyContainer" instance=ExtResource("7_w875n")]
+position = Vector2(60, 270)
+
+[node name="Enemy4" parent="GameManager/EnemyContainer" instance=ExtResource("7_w875n")]
+position = Vector2(120, 111)
+
+[node name="CoinsContainer" type="Node" parent="GameManager"]
+
+[node name="Coin" parent="GameManager/CoinsContainer" instance=ExtResource("13_o8kml")]
+position = Vector2(36, 343)
+_score = 10
+_heatbarProgress = 0.1
+_isSwaying = true
+_animation = SubResource("Animation_k14bx")
+
+[node name="Coin2" parent="GameManager/CoinsContainer" instance=ExtResource("13_o8kml")]
+position = Vector2(57, 343)
+_score = 10
+_heatbarProgress = 0.1
+_isSwaying = true
+_animation = SubResource("Animation_j85t5")
+
+[node name="Coin3" parent="GameManager/CoinsContainer" instance=ExtResource("13_o8kml")]
+position = Vector2(78, 343)
+_score = 10
+_heatbarProgress = 0.1
+_animation = SubResource("Animation_fvcpq")
+
+[node name="UI" parent="GameManager" instance=ExtResource("2_kviv5")]
+
+[node name="TouchController" parent="GameManager" instance=ExtResource("2_nr1sj")]
 _maximumSwipeCount = 10
 
-[node name="Player" parent="." node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_vy2c4")]
-position = Vector2(122, 464)
+[node name="Player" parent="GameManager" node_paths=PackedStringArray("_touchController", "_trajectoryController") instance=ExtResource("3_vy2c4")]
+position = Vector2(122, 463)
 scale = Vector2(1.03268, 1)
 collision_mask = 14
 _touchController = NodePath("../TouchController")
 _trajectoryController = NodePath("TrajectoryController")
 
-[node name="TrajectoryController" parent="Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_6c1w6")]
+[node name="TrajectoryController" parent="GameManager/Player" node_paths=PackedStringArray("_touchController", "_player") instance=ExtResource("4_6c1w6")]
 points = PackedVector2Array(0, 0)
 _touchController = NodePath("../../TouchController")
 _player = NodePath("..")
 
-[node name="PowerUp2" parent="." node_paths=PackedStringArray("_effect") instance=ExtResource("5_araga")]
+[node name="PowerUp2" parent="GameManager" node_paths=PackedStringArray("_effect") instance=ExtResource("5_araga")]
 position = Vector2(77, 390)
 _effect = NodePath("TestPowerUpComponent")
 _texture = ExtResource("6_asc20")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PowerUp2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameManager/PowerUp2"]
 shape = SubResource("CircleShape2D_fq43g")
 
-[node name="TestPowerUpComponent" parent="PowerUp2" instance=ExtResource("23_qp6p1")]
+[node name="TestPowerUpComponent" parent="GameManager/PowerUp2" instance=ExtResource("23_qp6p1")]
 
-[node name="TileMaps" type="Node2D" parent="."]
+[node name="TileMaps" type="Node2D" parent="GameManager"]
 
-[node name="Platforms" type="TileMapLayer" parent="TileMaps"]
+[node name="Platforms" type="TileMapLayer" parent="GameManager/TileMaps"]
 texture_filter = 1
 use_parent_material = true
 position = Vector2(0, -1)
@@ -190,7 +211,7 @@ tile_set = ExtResource("5_u8twf")
 use_kinematic_bodies = true
 navigation_enabled = false
 
-[node name="Walls" type="TileMapLayer" parent="TileMaps"]
+[node name="Walls" type="TileMapLayer" parent="GameManager/TileMaps"]
 z_index = -1
 texture_filter = 1
 use_parent_material = true
@@ -198,7 +219,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAADAAIAAAAAAAEAAAADAAIAAAAAAAIAAAADAAI
 tile_set = ExtResource("6_yaaex")
 use_kinematic_bodies = true
 
-[node name="Floor" type="TileMapLayer" parent="TileMaps"]
+[node name="Floor" type="TileMapLayer" parent="GameManager/TileMaps"]
 z_index = -1
 texture_filter = 1
 use_parent_material = true
@@ -206,94 +227,50 @@ tile_map_data = PackedByteArray("AAABAB0AAQACAAEAAAACAB0AAQACAAEAAAADAB0AAQACAAE
 tile_set = ExtResource("7_jq2lr")
 use_kinematic_bodies = true
 
-[node name="Environment" type="TileMapLayer" parent="TileMaps"]
+[node name="Environment" type="TileMapLayer" parent="GameManager/TileMaps"]
 z_index = -1
 texture_filter = 1
 use_parent_material = true
-tile_map_data = PackedByteArray("AAALABwAAAAFAAkAAAALABsAAAAFAAkAAAALABoAAAAFAAoAAAALABkAAAAFAAkAAAALABgAAAAFAAkAAAADABAAAAAKAAwAAAANAAwAAAAMAAkAAAAMAA4AAAADAAwAAAAEABIAAAACAAwAAAAEABMAAAAIAAwAAAAEABQAAAAIAA0AAAAFAAUAAAANAAoAAAAFAAYAAAANAAsAAAAJAAYAAAAMAAwAAAAEABwAAAAKAAoAAAADABwAAAAKAAoAAAADABsAAAAKAAoAAAALABcAAAAFAAgAAAA=")
+tile_map_data = PackedByteArray("AAALABwAAAAFAAkAAAALABsAAAAFAAkAAAALABoAAAAFAAoAAAALABkAAAAFAAkAAAALABgAAAAFAAkAAAADABAAAAAKAAwAAAANAAwAAAAMAAkAAAAMAA4AAAADAAwAAAAEABIAAAACAAwAAAAEABMAAAAIAAwAAAAEABQAAAAIAA0AAAAJAAYAAAAMAAwAAAAEABwAAAAKAAoAAAADABwAAAAKAAoAAAADABsAAAAKAAoAAAALABcAAAAFAAgAAAA=")
 tile_set = ExtResource("7_qawtq")
 
-[node name="Background_layer_1" type="TileMapLayer" parent="TileMaps"]
+[node name="Background_layer_1" type="TileMapLayer" parent="GameManager/TileMaps"]
 z_index = -2
 texture_filter = 1
 use_parent_material = true
 tile_set = ExtResource("8_ekee4")
 
-[node name="Background_layer_0" type="TileMapLayer" parent="TileMaps"]
+[node name="Background_layer_0" type="TileMapLayer" parent="GameManager/TileMaps"]
 z_index = -3
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAFABMAAAACAAIAAAAFABQAAAACAAIAAAAGABMAAAACAAIAAAAGABQAAAACAAIAAAABABoAAAACAAIAAAABABsAAAACAAIAAAABABwAAAACAAIAAAACABoAAAACAAIAAAACABsAAAACAAIAAAACABwAAAACAAIAAAADABoAAAACAAIAAAADABsAAAACAAIAAAADABwAAAACAAIAAAACABgAAAACAAIAAAADABgAAAAMAAEAAAABABYAAAACAAIAAAABABcAAAACAAIAAAABABgAAAACAAIAAAABABkAAAACAAIAAAACABYAAAACAAIAAAACABcAAAACAAIAAAACABkAAAACAAIAAAADABYAAAACAAIAAAADABcAAAACAAIAAAADABkAAAANAAMAAAAEABYAAAACAAIAAAAEABcAAAACAAIAAAAEABgAAAACAAIAAAAEABkAAAAMAAMAAAAEABoAAAAMAAIAAAAEABsAAAACAAIAAAAEABwAAAACAAIAAAAFABYAAAACAAIAAAAFABcAAAACAAIAAAAFABgAAAANAAIAAAAFABkAAAACAAIAAAAFABoAAAACAAIAAAAFABsAAAACAAIAAAAFABwAAAACAAIAAAAGABYAAAACAAIAAAAGABcAAAACAAIAAAAGABgAAAACAAIAAAAGABkAAAACAAIAAAAGABoAAAACAAIAAAAGABsAAAACAAIAAAAGABwAAAACAAIAAAAHABYAAAACAAIAAAAHABcAAAACAAIAAAAHABgAAAACAAIAAAAHABkAAAACAAIAAAAHABoAAAACAAIAAAAHABsAAAACAAIAAAAHABwAAAACAAIAAAAIABYAAAACAAIAAAAIABcAAAACAAIAAAAIABgAAAACAAIAAAAIABkAAAACAAIAAAAIABoAAAACAAIAAAAIABsAAAACAAIAAAAIABwAAAACAAIAAAAJABYAAAACAAIAAAAJABcAAAACAAIAAAAJABoAAAACAAIAAAAJABsAAAACAAIAAAAJABwAAAACAAIAAAAKABYAAAACAAIAAAAKABcAAAACAAIAAAAKABoAAAACAAIAAAAKABsAAAACAAIAAAAKABwAAAACAAIAAAALABYAAAACAAIAAAALABcAAAACAAIAAAALABgAAAACAAIAAAALABkAAAACAAIAAAALABoAAAACAAIAAAALABsAAAACAAIAAAALABwAAAACAAIAAAAMABYAAAACAAIAAAAMABcAAAACAAIAAAAMABgAAAACAAIAAAAMABkAAAACAAIAAAAMABoAAAACAAIAAAAMABsAAAACAAIAAAAMABwAAAACAAIAAAANABYAAAACAAIAAAANABcAAAACAAIAAAANABgAAAACAAIAAAANABkAAAACAAIAAAANABoAAAACAAIAAAANABsAAAACAAIAAAANABwAAAACAAIAAAABABAAAAACAAIAAAABABEAAAACAAIAAAABABIAAAACAAIAAAABABMAAAACAAIAAAABABQAAAACAAIAAAABABUAAAACAAIAAAACABAAAAACAAIAAAACABEAAAACAAIAAAACABIAAAACAAIAAAACABMAAAACAAIAAAACABQAAAACAAIAAAACABUAAAACAAIAAAADABAAAAAIAAUAAAADABEAAAAJAAUAAAADABIAAAACAAIAAAADABMAAAACAAIAAAADABQAAAACAAIAAAADABUAAAACAAIAAAAEABAAAAAHAAcAAAAEABEAAAAHAAYAAAAEABIAAAACAAIAAAAEABMAAAACAAIAAAAEABQAAAACAAIAAAAEABUAAAACAAIAAAAFABAAAAACAAIAAAAFABEAAAACAAIAAAAFABIAAAACAAIAAAAFABUAAAACAAIAAAAGABAAAAACAAIAAAAGABEAAAACAAYAAAAGABIAAAACAAIAAAAGABUAAAACAAIAAAAHABAAAAACAAIAAAAHABEAAAACAAIAAAAHABIAAAACAAIAAAAHABMAAAAKAAEAAAAHABQAAAAKAAIAAAAHABUAAAACAAIAAAAIABAAAAACAAIAAAAIABEAAAACAAIAAAAIABIAAAACAAIAAAAIABMAAAALAAEAAAAIABQAAAALAAIAAAAIABUAAAACAAIAAAAJABAAAAACAAIAAAAJABEAAAACAAIAAAAJABIAAAACAAIAAAAJABMAAAACAAIAAAAJABQAAAACAAIAAAAJABUAAAACAAIAAAAKABAAAAACAAIAAAAKABEAAAACAAIAAAAKABIAAAACAAIAAAAKABMAAAACAAIAAAAKABQAAAACAAIAAAAKABUAAAACAAIAAAALABAAAAACAAIAAAALABEAAAACAAIAAAALABIAAAACAAIAAAALABMAAAANAAEAAAALABQAAAACAAIAAAALABUAAAACAAIAAAAMABAAAAACAAIAAAAMABEAAAACAAIAAAAMABIAAAACAAIAAAAMABMAAAACAAIAAAAMABQAAAALAAcAAAAMABUAAAACAAIAAAANABAAAAACAAIAAAANABEAAAACAAIAAAANABIAAAACAAIAAAANABMAAAACAAIAAAANABQAAAACAAIAAAANABUAAAACAAIAAAABAAoAAAACAAIAAAABAAsAAAACAAIAAAABAAwAAAACAAIAAAABAA0AAAACAAIAAAABAA4AAAACAAIAAAABAA8AAAACAAIAAAACAAoAAAACAAIAAAACAAsAAAACAAIAAAACAAwAAAACAAIAAAACAA0AAAACAAIAAAACAA4AAAACAAIAAAACAA8AAAACAAIAAAADAAoAAAACAAIAAAADAAsAAAACAAIAAAADAAwAAAACAAIAAAADAA0AAAACAAIAAAADAA4AAAACAAIAAAADAA8AAAACAAIAAAAEAAoAAAAMAAMAAAAEAAsAAAACAAIAAAAEAAwAAAACAAIAAAAEAA0AAAACAAIAAAAEAA4AAAACAAIAAAAEAA8AAAACAAIAAAAFAAoAAAACAAIAAAAFAAsAAAACAAIAAAAFAAwAAAACAAIAAAAFAA0AAAACAAIAAAAFAA4AAAACAAIAAAAFAA8AAAACAAIAAAAGAAoAAAACAAIAAAAGAAsAAAACAAIAAAAGAAwAAAACAAIAAAAGAA0AAAACAAIAAAAGAA4AAAACAAIAAAAGAA8AAAACAAIAAAAHAAoAAAACAAIAAAAHAAsAAAACAAIAAAAHAAwAAAACAAIAAAAHAA0AAAACAAIAAAAHAA4AAAACAAIAAAAHAA8AAAACAAIAAAAIAAsAAAACAAIAAAAIAAwAAAACAAIAAAAIAA0AAAACAAIAAAAIAA4AAAACAAIAAAAIAA8AAAACAAIAAAAJAAoAAAACAAIAAAAJAAsAAAACAAIAAAAJAAwAAAACAAIAAAAJAA0AAAACAAIAAAAJAA4AAAACAAIAAAAJAA8AAAACAAIAAAAKAAoAAAAKAAIAAAAKAAsAAAACAAIAAAAKAAwAAAACAAIAAAAKAA0AAAAIAAQAAAAKAA4AAAAMAAMAAAAKAA8AAAACAAIAAAALAAoAAAALAAIAAAALAAsAAAACAAIAAAALAAwAAAACAAIAAAALAA0AAAAJAAQAAAALAA4AAAACAAIAAAALAA8AAAACAAIAAAAMAAoAAAACAAIAAAAMAAsAAAACAAIAAAAMAAwAAAACAAIAAAAMAA0AAAACAAIAAAAMAA4AAAACAAIAAAAMAA8AAAACAAIAAAANAAoAAAACAAIAAAANAAsAAAACAAIAAAANAAwAAAACAAIAAAANAA0AAAACAAIAAAANAA4AAAACAAIAAAANAA8AAAACAAIAAAABAAAAAAACAAIAAAABAAEAAAACAAIAAAABAAIAAAACAAIAAAABAAMAAAACAAIAAAABAAQAAAACAAIAAAABAAUAAAACAAIAAAABAAYAAAACAAIAAAABAAcAAAACAAIAAAABAAgAAAACAAIAAAABAAkAAAACAAIAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAACAAIAAAACAAIAAAACAAMAAAACAAIAAAACAAQAAAACAAIAAAACAAUAAAACAAIAAAACAAYAAAACAAIAAAACAAcAAAAMAAQAAAACAAgAAAACAAIAAAACAAkAAAACAAIAAAADAAAAAAACAAIAAAADAAEAAAACAAIAAAADAAIAAAACAAIAAAADAAMAAAACAAIAAAADAAQAAAACAAIAAAADAAUAAAACAAIAAAADAAYAAAACAAIAAAADAAcAAAACAAIAAAADAAgAAAAKAAMAAAADAAkAAAAKAAQAAAAEAAAAAAACAAIAAAAEAAEAAAACAAIAAAAEAAIAAAACAAIAAAAEAAMAAAACAAIAAAAEAAQAAAACAAIAAAAEAAUAAAACAAIAAAAEAAYAAAACAAIAAAAEAAcAAAACAAIAAAAEAAgAAAALAAMAAAAEAAkAAAALAAQAAAAFAAAAAAACAAIAAAAFAAEAAAACAAIAAAAFAAIAAAACAAIAAAAFAAMAAAACAAIAAAAFAAQAAAACAAIAAAAFAAUAAAACAAIAAAAFAAYAAAACAAIAAAAFAAcAAAAMAAEAAAAFAAgAAAACAAIAAAAFAAkAAAACAAIAAAAGAAAAAAACAAIAAAAGAAEAAAACAAIAAAAGAAIAAAACAAIAAAAGAAMAAAACAAIAAAAGAAQAAAACAAIAAAAGAAUAAAACAAIAAAAGAAYAAAACAAIAAAAGAAcAAAACAAIAAAAGAAgAAAACAAIAAAAGAAkAAAACAAIAAAAHAAAAAAACAAIAAAAHAAEAAAACAAIAAAAHAAIAAAACAAIAAAAHAAMAAAACAAIAAAAHAAQAAAACAAIAAAAHAAUAAAACAAIAAAAHAAYAAAACAAIAAAAHAAcAAAACAAIAAAAHAAgAAAACAAIAAAAHAAkAAAACAAIAAAAIAAAAAAACAAIAAAAIAAEAAAACAAIAAAAIAAIAAAACAAIAAAAIAAMAAAACAAIAAAAIAAQAAAACAAIAAAAIAAUAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAIAAgAAAACAAIAAAAIAAkAAAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAJAAIAAAACAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAJAAUAAAACAAIAAAAJAAYAAAANAAEAAAAJAAcAAAACAAIAAAAJAAgAAAACAAIAAAAJAAkAAAACAAIAAAAKAAAAAAACAAIAAAAKAAEAAAACAAIAAAAKAAIAAAACAAIAAAAKAAMAAAACAAIAAAAKAAQAAAACAAIAAAAKAAUAAAACAAIAAAAKAAYAAAACAAIAAAAKAAcAAAACAAIAAAAKAAgAAAACAAIAAAAKAAkAAAAKAAEAAAALAAAAAAACAAIAAAALAAEAAAACAAIAAAALAAIAAAACAAIAAAALAAMAAAACAAIAAAALAAQAAAACAAIAAAALAAUAAAACAAIAAAALAAYAAAACAAIAAAALAAcAAAACAAIAAAALAAgAAAACAAIAAAALAAkAAAALAAEAAAAMAAAAAAACAAIAAAAMAAEAAAACAAIAAAAMAAIAAAACAAIAAAAMAAMAAAACAAIAAAAMAAQAAAACAAIAAAAMAAUAAAACAAIAAAAMAAYAAAACAAIAAAAMAAcAAAACAAIAAAAMAAgAAAACAAIAAAAMAAkAAAACAAIAAAANAAAAAAACAAIAAAANAAEAAAACAAIAAAANAAIAAAACAAIAAAANAAMAAAACAAIAAAANAAQAAAACAAIAAAANAAUAAAACAAIAAAANAAYAAAACAAIAAAANAAcAAAACAAIAAAANAAgAAAACAAIAAAANAAkAAAACAAIAAAAKABkAAAAHAAYAAAAJABkAAAACAAIAAAAJABgAAAALAAUAAAAKABgAAAACAAIAAAAIAAoAAAAIAAcAAAA=")
 tile_set = ExtResource("8_ekee4")
 
-[node name="CoinsContainer" type="Node" parent="."]
-
-[node name="Coin" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(36, 343)
-_score = 10
-_heatbarProgress = 0.1
-_isSwaying = true
-_animation = SubResource("Animation_k14bx")
-
-[node name="Coin2" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(57, 343)
-_score = 10
-_heatbarProgress = 0.1
-_isSwaying = true
-_animation = SubResource("Animation_j85t5")
-
-[node name="Coin3" parent="CoinsContainer" instance=ExtResource("13_o8kml")]
-position = Vector2(78, 343)
-_score = 10
-_heatbarProgress = 0.1
-_animation = SubResource("Animation_fvcpq")
-
-[node name="EnemyContainer" parent="." instance=ExtResource("6_1wqfe")]
-
-[node name="Enemy" parent="EnemyContainer" instance=ExtResource("7_w875n")]
-position = Vector2(155, 367)
-
-[node name="Enemy2" parent="EnemyContainer" instance=ExtResource("8_68oie")]
-position = Vector2(203, 205)
-_speed = 60.0
-_heatbarProgress = 0.3
-
-[node name="Enemy3" parent="EnemyContainer" instance=ExtResource("7_w875n")]
-position = Vector2(60, 270)
-
-[node name="Enemy4" parent="EnemyContainer" instance=ExtResource("7_w875n")]
-position = Vector2(120, 111)
-
-[node name="UI" parent="." instance=ExtResource("2_kviv5")]
-
-[node name="Vignette" parent="UI/GUI" index="0"]
-material = SubResource("ShaderMaterial_lfd0r")
-offset_top = 0.0
-offset_right = 241.0
-offset_bottom = 481.0
-mouse_filter = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="GameManager"]
 anchor_mode = 0
 
-[node name="Aerial EnemyContainer" type="Node" parent="."]
+[node name="Aerial EnemyContainer" type="Node" parent="GameManager"]
 
-[node name="ArealEnemyPath3" type="Path2D" parent="Aerial EnemyContainer"]
+[node name="ArealEnemyPath3" type="Path2D" parent="GameManager/Aerial EnemyContainer"]
 position = Vector2(52, 143)
 curve = ExtResource("16_8k2wf")
 
-[node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath3" instance=ExtResource("14_f5hoq")]
+[node name="Aerial Enemy" parent="GameManager/Aerial EnemyContainer/ArealEnemyPath3" instance=ExtResource("14_f5hoq")]
 _cyclicPath = true
 
-[node name="ArealEnemyPath2" type="Path2D" parent="Aerial EnemyContainer"]
+[node name="ArealEnemyPath2" type="Path2D" parent="GameManager/Aerial EnemyContainer"]
 position = Vector2(191, 260)
 curve = ExtResource("15_nee8n")
 
-[node name="Aerial Enemy" parent="Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_theg8")]
+[node name="Aerial Enemy" parent="GameManager/Aerial EnemyContainer/ArealEnemyPath2" instance=ExtResource("16_theg8")]
 loop = false
 
-[node name="Touch UI" parent="." node_paths=PackedStringArray("_touchController") instance=ExtResource("22_pwc81")]
+[node name="Touch UI" parent="GameManager" node_paths=PackedStringArray("_touchController") instance=ExtResource("22_pwc81")]
 position = Vector2(-1, 0)
 _touchController = NodePath("../TouchController")
 
-[editable path="UI"]
-[editable path="UI/GUI/HBoxContainer/JumpsLeft"]
+[node name="Exit Level Door" parent="GameManager" instance=ExtResource("24_qly0t")]
+position = Vector2(93, 96)
+
+[editable path="GameManager/UI"]
+[editable path="GameManager/UI/GUI/HBoxContainer/JumpsLeft"]

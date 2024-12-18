@@ -1,0 +1,30 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt3yy5h85hcxj"]
+
+[ext_resource type="Script" path="res://Scripts/SceneChanger.cs" id="1_6pr0d"]
+[ext_resource type="PackedScene" uid="uid://cnnj74yspyit1" path="res://Scenes/Levels/level_0.tscn" id="2_eo4yn"]
+[ext_resource type="PackedScene" uid="uid://b8yuu27d2sfmq" path="res://Scenes/Levels/level_1.tscn" id="3_deui3"]
+[ext_resource type="Script" path="res://Scripts/Resources/LevelsList.cs" id="5_d0fpb"]
+[ext_resource type="PackedScene" uid="uid://broayf1pl3t56" path="res://Scenes/GUI/vignette.tscn" id="6_nmylk"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/vignette.gdshader" id="7_8owd5"]
+
+[sub_resource type="Resource" id="Resource_vduaa"]
+script = ExtResource("5_d0fpb")
+_levelScenes = Array[PackedScene]([ExtResource("2_eo4yn"), ExtResource("3_deui3")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk2kv"]
+resource_local_to_scene = true
+shader = ExtResource("7_8owd5")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0.120475, 0.118835, 0.128906, 1)
+shader_parameter/MULTIPLIER = 1.9
+shader_parameter/SCALE = 7.0
+shader_parameter/SOFTNESS = 0.21
+
+[node name="SceneChanger" type="Node"]
+script = ExtResource("1_6pr0d")
+_levelsList = SubResource("Resource_vduaa")
+
+[node name="Vignette" parent="." instance=ExtResource("6_nmylk")]
+z_index = 2
+material = SubResource("ShaderMaterial_gk2kv")
+mouse_filter = 2

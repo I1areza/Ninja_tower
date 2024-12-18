@@ -45,7 +45,7 @@ public partial class Coin : Area2D, IScorable
 		
 		if (player != null)
 		{
-			ScoreChanged(new OnScoreUpdatedEventArgs(_score, _heatbarProgress));
+			ScoreChanged.Invoke(new OnScoreUpdatedEventArgs(_score, _heatbarProgress));
 			CallDeferred(MethodName.QueueFree);
 		}
 	} 

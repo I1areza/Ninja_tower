@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://belbqe7he0elf"]
+
+[ext_resource type="Script" path="res://ExitLevelDoor.cs" id="1_fgdd5"]
+[ext_resource type="Texture2D" uid="uid://bjlfnawagr2hy" path="res://Assets/Sprites/Door.png" id="2_3ntld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it0ur"]
+size = Vector2(14, 31)
+
+[node name="Exit Level Door" type="Area2D"]
+script = ExtResource("1_fgdd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_3ntld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_it0ur")
