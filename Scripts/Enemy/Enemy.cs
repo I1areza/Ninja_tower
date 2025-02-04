@@ -26,8 +26,6 @@ public partial class Enemy : CharacterBody2D, IScorable
         _raycast = GetNode<RayCast2D>("RayCast2D");
 		_gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
 		_sprite2d = GetNode<Sprite2D>("EnemySprite");
-		
-
     }
 	
 	public override void _Process(double delta)

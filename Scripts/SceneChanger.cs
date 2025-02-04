@@ -6,13 +6,15 @@ public partial class SceneChanger : Node
 {
 	private Level _currentLevel;
 	[Export(PropertyHint.ResourceType,"LevelsList")] private LevelsList _levelsList;
-	private Vignette _vignette;
+	[Export] private Vignette _vignette;
+	
+	
+	public int CurrentSceneIndex => _levelsList.GetCurrentLevelIndex();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-			_vignette = GetNode<Vignette>("Vignette");
 			ReloadScene();
-			_vignette.FadeOut(_currentLevel.Player.GetGlobalTransform().Origin);
+			//_vignette.FadeOut(_currentLevel.Player.GetGlobalTransform().Origin);
 	}
 
 	private async void OnPlayerDied(Vector2 point)
@@ -33,7 +35,7 @@ public partial class SceneChanger : Node
 
 	private void LoadNextScene()
 	{
-		_currentLevel.QueueFree();
+		_currentLevel?.QueueFree();
 		if (_levelsList.TryGetNextLevel(out var nextPackedScene))
 		{
 			_currentLevel = (Level)nextPackedScene.Instantiate();
@@ -42,9 +44,24 @@ public partial class SceneChanger : Node
 			_currentLevel.ExitLevelDoor.OnExit += LoadNextScene;
 		}
 		GD.PrintErr("No more levels to load");
-		
-		
+		//ReloadScene();
+
 	}
+	
+	private void LoadSceneByIndex(int index)
+	{
+		_currentLevel?.QueueFree();
+		if (_levelsList.TryGetLevelByIndex(index, out var levelScene))
+		{
+			_currentLevel = (Level)levelScene.Instantiate();
+			AddChild(_currentLevel);
+			_currentLevel.Player.PlayerDied += OnPlayerDied;
+			_currentLevel.ExitLevelDoor.OnExit += LoadNextScene;
+		}
+		//ReloadScene();
+
+	}
+	
 	
 	private void ReloadScene()
 	{

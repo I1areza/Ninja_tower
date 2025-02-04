@@ -36,8 +36,6 @@ public partial class Coin : Area2D, IScorable
 		
 		
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	
 	private void OnAreaEnteredByPlayer(Node2D body) 
 	{

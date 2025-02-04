@@ -1,34 +1,49 @@
 using Godot;
-using System;
 
 public partial class UIManager : CanvasLayer
 {
-	private JumpsPresenter _jumpsPresenter;
-	private EnemyPresenter _enemyPresenter;
-	private Heatbar _heatbar;
-	private Score _score;
-	//private LevelTimer _levelTimer;
-	// Called when the node enters the scene tree for the first time.
+	[Export] private JumpsPresenter _jumpsPresenter;
+	[Export] private EnemyPresenter _enemyPresenter;
+	[Export] private Heatbar _heatbar;
+	[Export] private Score _score;
+	[Export] private TextureButton _menuButton;
+	[Export] private MenuSelector _menuSelector;
+	[Export] private StartMenu _startMenu;
+	private static UIManager _instance;
+
+	public static UIManager Instance => _instance;
+
+	
+	public TextureButton MenuButton => _menuButton;
+	public Heatbar GetHeatbar()=>_heatbar;
+	public Score GetScore() => _score;
+	
+
+	
+
+
 	public override void _Ready()
 	{
-		
-		//_levelTimer = GetNode<LevelTimer>("GUI/Timer");
-		_jumpsPresenter = GetNode<JumpsPresenter>("GUI/HBoxContainer/JumpsLeft");
-		_enemyPresenter = GetNode<EnemyPresenter>("GUI/HBoxContainer/EnemiesLeft");
-		_heatbar = GetNode<Heatbar>("GUI/HeatBar");
-		_score = GetNode<Score>("GUI/Score");
-
+		if (_instance != null)
+		{
+			if (_instance != this)
+			{
+				QueueFree();
+			}
+			return;
+		}
+		_instance = this;
+		_menuButton.Pressed += _menuSelector.ShowPauseMenu;
 	}
-	
+
 	public void InitializeUIManager(Enemy[] enemies, TouchController touchController, int heatbarDecreaseTIme, Player player)
 	{
 		_enemyPresenter.Init(enemies);
 		_jumpsPresenter.Init(touchController);
 		_heatbar.Init(heatbarDecreaseTIme);
-		
+		_score.Init(_heatbar);
 	}
+
 	
-	public Heatbar GetHeatbar()=>_heatbar;
-	public Score GetScore() => _score;
 	
 }

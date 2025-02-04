@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://j2sbrm62e20f"]
+[gd_scene load_steps=12 format=3 uid="uid://j2sbrm62e20f"]
 
 [ext_resource type="Script" path="res://Scripts/GUI/UIManager.cs" id="1_65l0g"]
 [ext_resource type="PackedScene" uid="uid://dtlnmtoa4j14b" path="res://Scenes/GUI/Score.tscn" id="2_btr1m"]
-[ext_resource type="Texture2D" uid="uid://cxbuvucyp0hji" path="res://Assets/Sprites/Tiny Dungeon/Tilemap/pause.png" id="2_g3g4e"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/vignette.gdshader" id="2_thvlo"]
 [ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="4_orqb5"]
 [ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="5_47pro"]
 [ext_resource type="PackedScene" uid="uid://dv6tcfjto1emf" path="res://Scenes/GUI/heatbar.tscn" id="6_jhbgw"]
+[ext_resource type="PackedScene" uid="uid://bxoopkasw5870" path="res://Scenes/GUI/MenuSelector.tscn" id="8_ffwam"]
+[ext_resource type="Texture2D" uid="uid://dahpnrycpq0a3" path="res://Assets/Sprites/Lucid V1.2/Spritesheet/Flat/32/IconsFlat-32.png" id="9_m500l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tlg3p"]
 shader = ExtResource("2_thvlo")
@@ -16,10 +17,22 @@ shader_parameter/MULTIPLIER = 1.0
 shader_parameter/SCALE = 0.56
 shader_parameter/SOFTNESS = 0.355
 
-[node name="UI" type="CanvasLayer"]
-script = ExtResource("1_65l0g")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytrbm"]
+atlas = ExtResource("9_m500l")
 
-[node name="GUI" type="Control" parent="."]
+[sub_resource type="AtlasTexture" id="AtlasTexture_06be5"]
+atlas = SubResource("AtlasTexture_ytrbm")
+region = Rect2(160, 288, 32, 32)
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("_jumpsPresenter", "_enemyPresenter", "_heatbar", "_score")]
+layer = 0
+script = ExtResource("1_65l0g")
+_jumpsPresenter = NodePath("InGameUI/HBoxContainer/JumpsLeft")
+_enemyPresenter = NodePath("InGameUI/HBoxContainer/EnemiesLeft")
+_heatbar = NodePath("InGameUI/HeatBar")
+_score = NodePath("InGameUI/Score")
+
+[node name="InGameUI" type="Control" parent="."]
 top_level = true
 material = SubResource("ShaderMaterial_tlg3p")
 layout_mode = 3
@@ -31,56 +44,72 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_default_cursor_shape = 6
 
-[node name="Score" parent="GUI" instance=ExtResource("2_btr1m")]
+[node name="Score" parent="InGameUI" instance=ExtResource("2_btr1m")]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 19.0
-offset_right = 166.0
-offset_bottom = 78.0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 87.0
+offset_top = 64.0
+offset_right = 159.0
+offset_bottom = 123.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="HeatBar" parent="GUI" instance=ExtResource("6_jhbgw")]
+[node name="HeatBar" parent="InGameUI" instance=ExtResource("6_jhbgw")]
 layout_mode = 1
-offset_left = -31.0
-offset_top = -169.0
-offset_right = -31.0
-offset_bottom = -169.0
+offset_left = -38.0
+offset_top = -124.0
+offset_right = -38.0
+offset_bottom = -124.0
 scale = Vector2(2.655, 2)
 
-[node name="TextureButton" type="TextureButton" parent="GUI"]
+[node name="PauseMenu" type="TextureButton" parent="InGameUI"]
 modulate = Color(1, 1, 1, 0.745098)
 texture_filter = 1
 layout_direction = 1
 layout_mode = 1
-offset_left = 204.0
-offset_top = 1.0
-offset_right = 222.0
-offset_bottom = 19.0
-scale = Vector2(2, 2)
-texture_normal = ExtResource("2_g3g4e")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_06be5")
+texture_pressed = SubResource("AtlasTexture_06be5")
+texture_hover = SubResource("AtlasTexture_06be5")
 stretch_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="InGameUI"]
 custom_minimum_size = Vector2(0, 3.6)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -56.0
-offset_right = 20.0
+offset_left = -64.0
+offset_right = 12.0
 offset_bottom = 21.0
 grow_horizontal = 2
 scale = Vector2(1.7, 1.7)
 theme_override_constants/separation = 2
 
-[node name="JumpsLeft" parent="GUI/HBoxContainer" instance=ExtResource("4_orqb5")]
+[node name="JumpsLeft" parent="InGameUI/HBoxContainer" instance=ExtResource("4_orqb5")]
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="EnemiesLeft" parent="GUI/HBoxContainer" node_paths=PackedStringArray("_score") instance=ExtResource("5_47pro")]
+[node name="EnemiesLeft" parent="InGameUI/HBoxContainer" node_paths=PackedStringArray("_score") instance=ExtResource("5_47pro")]
 clip_contents = true
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 _score = NodePath("../../Score")
+
+[node name="Menus" parent="." instance=ExtResource("8_ffwam")]
+
+[editable path="InGameUI/Score"]

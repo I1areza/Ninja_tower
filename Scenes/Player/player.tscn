@@ -203,6 +203,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animationPlayer")]
+z_index = 2
 position = Vector2(-1, 0)
 collision_mask = 286
 floor_block_on_wall = false

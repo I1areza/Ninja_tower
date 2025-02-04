@@ -7,17 +7,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="Minor changes to control flow, vents. Added the vignette effect on death.">
+    <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExitLevelDoor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GUI/vignette.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/vignette.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/exit_level_door.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/exit_level_door.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/scene_changer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/scene_changer.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/touch_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/touch_ui.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/GUI/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GUI/Vignette.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Vignette.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Resources/LevelsList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Resources/LevelsList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/SceneChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/SceneChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/TouchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/TouchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TouchControlUI.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/swipe_arrow.tscn" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,28 +54,28 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/I1areza/Ninja_tower",
-    "accountId": "0d25b42a-39d2-4254-b7cb-1474175d21fc"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/I1areza/Ninja_tower&quot;,
+    &quot;accountId&quot;: &quot;0d25b42a-39d2-4254-b7cb-1474175d21fc&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/Coin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Enemy/ArealEnemyPath.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://A:/Godot Projects/Ninja Tower/Scripts/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Utils/Utils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptMethodsGenerator/ExitLevelDoor_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Temp/SourceGeneratedDocuments/E578AB27BDBF28A99646DB40/Godot.SourceGenerators/Godot.SourceGenerators.ScriptSignalsGenerator/TouchController_ScriptSignals.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4fd22cd129a84c16b5d8004b467c426f518800/8d/ab3359b6/CSharpInstanceBridge.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/23fd556cc1333e1428b66422f2ce9db97b81d8d173ceefda39d58c9b0146f2c/CharacterBody2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c92637ae2e83da0a63791071c41eae291d594156062866d8621b7ed7245c/CastHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5be498bb2deb5aa9162565bdecd68f0beaea52/WeaponizedEnemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/69a2ad78b8912d6074b27457251869fab855bc/Enemy_ScriptMethods.generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/77bca6ddb97d819c945b24c68c8325f97d8e44cfd553822a3b9d4f4f7e24421/PhysicsBody2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b6d40bd535f877bf97410721d7c67bcbdd11e9ba3dfea39914e2f8596ab8/Node2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8698b894b53cd5171b3378491a74bf53d9fc2c09723677bffbe5ed9a8b6bc42/Animation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a3f6e7387b868cf426d51eddd1816420d11dd139dc9bca244c32f1d22d8b2/GodotObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4e2fe21237e7c578b6bcd7c20ea4746d94a584aa80dd689e32fdc32b7ede6e/InputEventScreenTouch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b97bc0d8f9d0e6f0d182d0876f262bd728eea2578d4f1e943f6c38e41abb2fb/MulticastDelegate.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bb1b701f3c7411227a9d2e09f965d857ff3e771557650c4f513e427d77c/Node.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/be9fe3a81257ea22292cffb5a1cb14e1dc3ba67821b28711e066bc1cab8/CollisionObject2D.cs" root0="FORCE_HIGHLIGHTING" />
@@ -190,7 +205,14 @@
       <workItem from="1733533303687" duration="26000" />
       <workItem from="1733533421335" duration="1176000" />
       <workItem from="1733535907973" duration="17598000" />
-      <workItem from="1734305461803" duration="38149000" />
+      <workItem from="1734305461803" duration="65166000" />
+      <workItem from="1734789673232" duration="2525000" />
+      <workItem from="1735095615135" duration="25441000" />
+      <workItem from="1735835482401" duration="6387000" />
+      <workItem from="1735861034057" duration="34756000" />
+      <workItem from="1737122171104" duration="47276000" />
+      <workItem from="1737840405842" duration="54651000" />
+      <workItem from="1738447492007" duration="14793000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -280,7 +302,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734308497846</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added the Scene Change Managament system, supporting loging, exit level areas and level list resource. Updated the vignette animations.">
+      <option name="closed" value="true" />
+      <created>1734486125369</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734486125369</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,26 +369,10 @@
     <MESSAGE value="added touchController UI" />
     <MESSAGE value="Added Touch Control UI script and modified touch controller." />
     <MESSAGE value="Minor changes to control flow, vents. Added the vignette effect on death." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor changes to control flow, vents. Added the vignette effect on death." />
+    <MESSAGE value="Added the Scene Change Managament system, supporting loging, exit level areas and level list resource. Updated the vignette animations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the Scene Change Managament system, supporting loging, exit level areas and level list resource. Updated the vignette animations." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Scripts/GUI/UIManager.cs</url>
-          <line>17</line>
-          <properties documentPath="A:\Godot Projects\Ninja Tower\Scripts\GUI\UIManager.cs" containingFunctionPresentation="Method '_Ready'">
-            <startOffsets>
-              <option value="554" />
-            </startOffsets>
-            <endOffsets>
-              <option value="597" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Godot.GodotObject" memberName="NativePtr" />

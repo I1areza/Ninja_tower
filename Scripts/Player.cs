@@ -24,6 +24,7 @@ public partial class Player : CharacterBody2D
     public event Action<Vector2> PlayerDied;
     
     public bool IsMoving => _isMoving;
+    public Vector2 NormilizedVelocity => _velocity.Normalized();
 
     public override void _Ready()
 	{

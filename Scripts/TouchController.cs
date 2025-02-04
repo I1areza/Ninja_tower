@@ -82,6 +82,8 @@ public partial class TouchController: Node
 		if (@event is InputEventScreenTouch && @event.IsPressed() && !InProgress)
 		{
             var position = (@event as InputEventScreenTouch).Position;
+            //var globalPos = GetGlobalTransform().AffineInverse()
+            //GD.Print($"ScreenPosition: {GlobalTransform().AffineInverse() * position}");
             _inProgress = true;
             from = position;
 		}

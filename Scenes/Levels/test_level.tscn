@@ -37,11 +37,10 @@ shader_parameter/flickering_speed = 3.0
 shader_parameter/minimal_flickering_alpha_ratio = 0.5
 shader_parameter/texture_alpha = 0.3
 
-[node name="Test Level" type="Node2D" node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
+[node name="Test Level" type="Node2D" node_paths=PackedStringArray("_player", "_touchController")]
 position = Vector2(1, 0)
 script = ExtResource("1_o3n0y")
 _heatBarWearOffTime = 10
-_uiManager = NodePath("UI")
 _levelSwipesCount = 10
 _player = NodePath("Player")
 _scoreModifier = 2

@@ -25,11 +25,10 @@ script = ExtResource("1_osnfu")
 _player = NodePath("GameManager/Player")
 _exitLevelDoor = NodePath("GameManager/Exit Level Door")
 
-[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("_uiManager", "_player", "_touchController")]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("_player", "_touchController")]
 position = Vector2(1, 0)
 script = ExtResource("1_honu2")
 _heatBarWearOffTime = 10
-_uiManager = NodePath("UI")
 _levelSwipesCount = 10
 _player = NodePath("Player")
 _scoreModifier = 2
@@ -96,3 +95,6 @@ position = Vector2(65, 96)
 [node name="Touch UI" parent="GameManager" node_paths=PackedStringArray("_touchController") instance=ExtResource("19_hcxwm")]
 position = Vector2(-1, 0)
 _touchController = NodePath("../TouchController")
+
+[editable path="GameManager/UI"]
+[editable path="GameManager/UI/InGameUI/Score"]
