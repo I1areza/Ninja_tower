@@ -1,0 +1,142 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhoekux7igef1"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/LevelMenu.cs" id="1_qlli6"]
+[ext_resource type="PackedScene" uid="uid://wade4cwgi3jf" path="res://Scenes/GUI/Button.tscn" id="2_mcw4h"]
+[ext_resource type="FontFile" uid="uid://mhmgvpn3femc" path="res://Assets/Fonts/m3x6.ttf" id="3_1ihtj"]
+[ext_resource type="StyleBox" uid="uid://cpp2u7joh63af" path="res://Resources/buttonPressedStyle.tres" id="4_2nyok"]
+[ext_resource type="StyleBox" uid="uid://cfavd720qo3ox" path="res://Resources/buttonUnpressedStyle.tres" id="5_nbxvw"]
+[ext_resource type="Texture2D" uid="uid://dahpnrycpq0a3" path="res://Assets/Sprites/Lucid V1.2/Spritesheet/Flat/32/IconsFlat-32.png" id="6_55jgi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08juk"]
+atlas = ExtResource("6_55jgi")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7fby"]
+texture = SubResource("AtlasTexture_08juk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbxqa"]
+atlas = ExtResource("6_55jgi")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpygi"]
+texture = SubResource("AtlasTexture_bbxqa")
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_right = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qlli6")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+offset_bottom = -173.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "2"
+
+[node name="Button3" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "3"
+
+[node name="Button4" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "4"
+
+[node name="Button5" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "5"
+
+[node name="Button6" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "6"
+
+[node name="Button7" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "7"
+
+[node name="Button8" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "8"
+
+[node name="Button9" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "9"
+
+[node name="Button10" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "10"
+
+[node name="Button11" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+
+[node name="Button12" parent="HFlowContainer" instance=ExtResource("2_mcw4h")]
+layout_mode = 2
+text = "12
+"
+
+[node name="LoadLevel" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 78.0
+offset_top = 370.0
+offset_right = 170.0
+offset_bottom = 406.0
+theme_override_fonts/font = ExtResource("3_1ihtj")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("4_2nyok")
+theme_override_styles/pressed = ExtResource("4_2nyok")
+theme_override_styles/normal = ExtResource("5_nbxvw")
+text = "Load Level"
+
+[node name="Back" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 102.0
+offset_top = 424.0
+offset_right = 146.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("3_1ihtj")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("4_2nyok")
+theme_override_styles/pressed = ExtResource("4_2nyok")
+theme_override_styles/normal = ExtResource("5_nbxvw")
+text = "Back"
+
+[node name="BackArrow" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 72.0
+offset_top = 328.0
+offset_right = 104.0
+offset_bottom = 360.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7fby")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t7fby")
+theme_override_styles/normal = SubResource("StyleBoxTexture_t7fby")
+
+[node name="NextError" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 136.0
+offset_top = 328.0
+offset_right = 168.0
+offset_bottom = 360.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_mpygi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mpygi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mpygi")

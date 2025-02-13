@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bxgknikbxcukx"]
+
+[ext_resource type="FontFile" uid="uid://mhmgvpn3femc" path="res://Assets/Fonts/m3x6.ttf" id="1_dbrjq"]
+
+[resource]
+default_font = ExtResource("1_dbrjq")
+default_font_size = 50

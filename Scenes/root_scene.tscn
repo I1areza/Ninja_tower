@@ -1,0 +1,360 @@
+[gd_scene load_steps=29 format=3 uid="uid://bytb30nut7rpl"]
+
+[ext_resource type="Script" path="res://Scripts/GUI/UIManager.cs" id="1_a602x"]
+[ext_resource type="PackedScene" uid="uid://broayf1pl3t56" path="res://Scenes/GUI/vignette.tscn" id="2_q1q8w"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/vignette.gdshader" id="3_xytjo"]
+[ext_resource type="PackedScene" uid="uid://b02eyxoylne1w" path="res://Scenes/GUI/StartMenu.tscn" id="4_6p0uj"]
+[ext_resource type="PackedScene" uid="uid://dtlnmtoa4j14b" path="res://Scenes/GUI/Score.tscn" id="4_cfq2u"]
+[ext_resource type="FontFile" uid="uid://mhmgvpn3femc" path="res://Assets/Fonts/m3x6.ttf" id="5_a8dxl"]
+[ext_resource type="PackedScene" uid="uid://dv6tcfjto1emf" path="res://Scenes/GUI/heatbar.tscn" id="5_mutjb"]
+[ext_resource type="Texture2D" uid="uid://dahpnrycpq0a3" path="res://Assets/Sprites/Lucid V1.2/Spritesheet/Flat/32/IconsFlat-32.png" id="6_8pnh4"]
+[ext_resource type="PackedScene" uid="uid://dxjmpajdolv2f" path="res://Scenes/GUI/jumps_left_ui.tscn" id="7_7kvfc"]
+[ext_resource type="PackedScene" uid="uid://dw6btcnn47tw4" path="res://Scenes/GUI/enemies_left_ui.tscn" id="8_tjt88"]
+[ext_resource type="Script" path="res://Scenes/GUI/MenuSelector.cs" id="9_abvg1"]
+[ext_resource type="PackedScene" uid="uid://dhoekux7igef1" path="res://Scenes/GUI/LevelSelection.tscn" id="10_c3hv1"]
+[ext_resource type="PackedScene" uid="uid://bmt0jpoxdb8xh" path="res://Scenes/GUI/PauseMenu.tscn" id="11_csjll"]
+[ext_resource type="PackedScene" uid="uid://dt3yy5h85hcxj" path="res://Scenes/scene_changer.tscn" id="12_q8823"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gk2kv"]
+resource_local_to_scene = true
+shader = ExtResource("3_xytjo")
+shader_parameter/player_position = Vector2(0.5, 0.5)
+shader_parameter/color = Color(0.120475, 0.118835, 0.128906, 1)
+shader_parameter/MULTIPLIER = 1.9
+shader_parameter/SCALE = 7.0
+shader_parameter/SOFTNESS = 0.21
+
+[sub_resource type="Animation" id="Animation_hh4s0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_3y28s"]
+resource_name = "label_swing"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(30, 40), Vector2(30, 45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hebs0"]
+_data = {
+"RESET": SubResource("Animation_hh4s0"),
+"label_swing": SubResource("Animation_3y28s")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ahjfs"]
+font = ExtResource("5_a8dxl")
+font_size = 64
+font_color = Color(0.875, 0.875, 0.875, 1)
+outline_size = 5
+outline_color = Color(0.1875, 0.1875, 0.1875, 1)
+shadow_color = Color(0.96, 0.1056, 0.1056, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gt317"]
+shader = ExtResource("3_xytjo")
+shader_parameter/player_position = Vector2(0.65, 0.75)
+shader_parameter/color = Color(0.115946, 0.114944, 0.121094, 1)
+shader_parameter/MULTIPLIER = 1.0
+shader_parameter/SCALE = 0.56
+shader_parameter/SOFTNESS = 0.355
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0awd6"]
+atlas = ExtResource("6_8pnh4")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipweq"]
+atlas = SubResource("AtlasTexture_0awd6")
+region = Rect2(160, 288, 32, 32)
+
+[sub_resource type="Animation" id="Animation_k2n0q"]
+resource_name = "HideLevelSelection"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.170755, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(240, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b225h"]
+resource_name = "HidePauseMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.112656, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-240, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0jedt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(240, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-239, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_07qi1"]
+resource_name = "ShowLevelSelection"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(0.196146, 0.15932),
+"update": 0,
+"values": [Vector2(240, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5137n"]
+resource_name = "ShowPauseMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PauseMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.105112, 1),
+"update": 0,
+"values": [Vector2(-240, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft2we"]
+_data = {
+"HideLevelSelection": SubResource("Animation_k2n0q"),
+"HidePauseMenu": SubResource("Animation_b225h"),
+"RESET": SubResource("Animation_0jedt"),
+"ShowLevelSelection": SubResource("Animation_07qi1"),
+"ShowPauseMenu": SubResource("Animation_5137n")
+}
+
+[node name="RootScene" type="Node"]
+
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("_jumpsPresenter", "_enemyPresenter", "_heatbar", "_score", "_menuButton", "_menuSelector")]
+script = ExtResource("1_a602x")
+_jumpsPresenter = NodePath("InGameUI/HBoxContainer/JumpsLeft")
+_enemyPresenter = NodePath("InGameUI/HBoxContainer/EnemiesLeft")
+_heatbar = NodePath("InGameUI/HeatBar")
+_score = NodePath("InGameUI/Score")
+_menuButton = NodePath("InGameUI/PauseMenu")
+_menuSelector = NodePath("MenuSelectorUI")
+
+[node name="Vignette" parent="UI" instance=ExtResource("2_q1q8w")]
+z_index = 2
+material = SubResource("ShaderMaterial_gk2kv")
+mouse_filter = 2
+
+[node name="StartMenuUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI/StartMenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0776152, 0.0582275, 0.140625, 1)
+
+[node name="StartMenu" parent="UI/StartMenuUI" instance=ExtResource("4_6p0uj")]
+layout_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/StartMenuUI"]
+deterministic = true
+root_node = NodePath("../Label")
+libraries = {
+"": SubResource("AnimationLibrary_hebs0")
+}
+autoplay = "label_swing"
+
+[node name="Label" type="Label" parent="UI/StartMenuUI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 39.0
+offset_right = 92.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "Ninja Tower"
+label_settings = SubResource("LabelSettings_ahjfs")
+
+[node name="InGameUI" type="Control" parent="UI"]
+visible = false
+top_level = true
+material = SubResource("ShaderMaterial_gt317")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 6
+
+[node name="Score" parent="UI/InGameUI" instance=ExtResource("4_cfq2u")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 87.0
+offset_top = 64.0
+offset_right = 159.0
+offset_bottom = 123.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="HeatBar" parent="UI/InGameUI" instance=ExtResource("5_mutjb")]
+layout_mode = 1
+offset_left = -38.0
+offset_top = -124.0
+offset_right = -38.0
+offset_bottom = -124.0
+scale = Vector2(2.655, 2)
+
+[node name="PauseMenu" type="TextureButton" parent="UI/InGameUI"]
+modulate = Color(1, 1, 1, 0.745098)
+texture_filter = 1
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_ipweq")
+texture_pressed = SubResource("AtlasTexture_ipweq")
+texture_hover = SubResource("AtlasTexture_ipweq")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/InGameUI"]
+custom_minimum_size = Vector2(0, 3.6)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 12.0
+offset_bottom = 21.0
+grow_horizontal = 2
+scale = Vector2(1.7, 1.7)
+theme_override_constants/separation = 2
+
+[node name="JumpsLeft" parent="UI/InGameUI/HBoxContainer" instance=ExtResource("7_7kvfc")]
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="EnemiesLeft" parent="UI/InGameUI/HBoxContainer" node_paths=PackedStringArray("_score") instance=ExtResource("8_tjt88")]
+clip_contents = true
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+_score = NodePath("../../Score")
+
+[node name="MenuSelectorUI" type="Control" parent="UI" node_paths=PackedStringArray("_menuColorRectBackGround", "PauseMenu", "LevelSelectionMenu")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_abvg1")
+_menuColorRectBackGround = NodePath("Background")
+PauseMenu = NodePath("PauseMenu")
+LevelSelectionMenu = NodePath("LevelSelection")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/MenuSelectorUI"]
+libraries = {
+"": SubResource("AnimationLibrary_ft2we")
+}
+
+[node name="Background" type="ColorRect" parent="UI/MenuSelectorUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.494118)
+
+[node name="LevelSelection" parent="UI/MenuSelectorUI" instance=ExtResource("10_c3hv1")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="UI/MenuSelectorUI" instance=ExtResource("11_csjll")]
+layout_mode = 1
+
+[node name="SceneChanger" parent="." node_paths=PackedStringArray("_vignette") instance=ExtResource("12_q8823")]
+_vignette = NodePath("../UI/Vignette")
+
+[editable path="UI/InGameUI/Score"]
+[editable path="UI/MenuSelectorUI/LevelSelection"]
+[editable path="UI/MenuSelectorUI/PauseMenu"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://tquqj3pvd44p"]
+
+[ext_resource type="Texture2D" uid="uid://bf14gyvcwg6u4" path="res://Assets/Sprites/wave.png" id="1_ntgm0"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/lava.gdshader" id="1_vucok"]
+[ext_resource type="Texture2D" uid="uid://uhgh1mdbu1tp" path="res://Assets/Sprites/lava_body.png" id="2_u6xp6"]
+[ext_resource type="Texture2D" uid="uid://b5qdx7mfjetn6" path="res://Assets/Sprites/lava particle.png" id="3_2tnvb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a1xk"]
+shader = ExtResource("1_vucok")
+shader_parameter/speed = 0.09
+shader_parameter/color = Color(0.964844, 0.750015, 0.10553, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p3fvm"]
+shader = ExtResource("1_vucok")
+shader_parameter/speed = 0.05
+shader_parameter/color = Color(0.905882, 0.494118, 0.0156863, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2v6js"]
+shader = ExtResource("1_vucok")
+shader_parameter/speed = 0.06
+shader_parameter/color = Color(0.996078, 0.333333, 0.105882, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dagv5"]
+shader = ExtResource("1_vucok")
+shader_parameter/speed = 0.1
+shader_parameter/color = Color(0.823529, 0.117647, 0.117647, 1)
+
+[sub_resource type="Curve" id="Curve_2rrxa"]
+_data = [Vector2(0, 0.513053), 0.0, 0.0, 0, 0, Vector2(0.501449, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.513053), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fk8n5"]
+curve = SubResource("Curve_2rrxa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8pyxk"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(150, 100, 0)
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
+angular_velocity_min = -111.43
+angular_velocity_max = 1.29998
+gravity = Vector3(0, -10, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -13.07
+tangential_accel_max = 10.83
+scale_curve = SubResource("CurveTexture_fk8n5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45csr"]
+size = Vector2(300, 34)
+
+[node name="Lava" type="Area2D"]
+texture_filter = 1
+
+[node name="lava 1" type="Sprite2D" parent="."]
+modulate = Color(0.980469, 0.813207, 0.157028, 1)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6a1xk")
+position = Vector2(114, -9)
+texture = ExtResource("1_ntgm0")
+region_enabled = true
+region_rect = Rect2(-50.33, 0, 300, 32)
+
+[node name="lava 2" type="Sprite2D" parent="."]
+modulate = Color(0.90625, 0.495052, 0.0141602, 1)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_p3fvm")
+position = Vector2(114, 8)
+texture = ExtResource("1_ntgm0")
+region_enabled = true
+region_rect = Rect2(29.07, 0, 300, 32)
+
+[node name="lava 3" type="Sprite2D" parent="."]
+modulate = Color(0.996094, 0.334777, 0.105057, 1)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_2v6js")
+position = Vector2(114, 21)
+texture = ExtResource("1_ntgm0")
+region_enabled = true
+region_rect = Rect2(25.575, 0, 300, 32)
+
+[node name="lava 4" type="Sprite2D" parent="."]
+modulate = Color(0.824219, 0.119125, 0.119125, 1)
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_dagv5")
+position = Vector2(114, 40)
+texture = ExtResource("1_ntgm0")
+region_enabled = true
+region_rect = Rect2(12.46, 0, 300, 32)
+
+[node name="body" type="Sprite2D" parent="."]
+modulate = Color(0.823529, 0.117647, 0.117647, 1)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(114, 204)
+texture = ExtResource("2_u6xp6")
+region_enabled = true
+region_rect = Rect2(0, 0, 300, 323.395)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="body"]
+modulate = Color(0, 0, 0, 0.180392)
+position = Vector2(24, -116)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_8pyxk")
+texture = ExtResource("3_2tnvb")
+lifetime = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(114, -9)
+shape = SubResource("RectangleShape2D_45csr")

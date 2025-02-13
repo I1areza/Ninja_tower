@@ -9,30 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c634f466-6221-4b06-b334-b79e9ddc1d31" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.project I gonna finish/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExitLevelDoor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/Score.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/GUI/ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_0.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/level_1.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Levels/test_level.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Player/player.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Player/player.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/exit_level_door.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/exit_level_door.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/scene_changer.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/scene_changer.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/touch_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/touch_ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Coin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GUI/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/Score.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GUI/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Resources/LevelsList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Resources/LevelsList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/SceneChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/SceneChanger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/TouchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/TouchController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Utils/OnScoreUpdatedEventArgs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TouchControlUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/project I gonna finish.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/swipe_arrow.tscn" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +188,8 @@
       <workItem from="1735861034057" duration="34756000" />
       <workItem from="1737122171104" duration="47276000" />
       <workItem from="1737840405842" duration="54651000" />
-      <workItem from="1738447492007" duration="14793000" />
+      <workItem from="1738447492007" duration="14842000" />
+      <workItem from="1738757985108" duration="7426000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -310,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734486125369</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="kinda broken commit, UI and scene configuration. Nothing works">
+      <option name="closed" value="true" />
+      <created>1738660416055</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1738660416055</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +355,8 @@
     <MESSAGE value="Added Touch Control UI script and modified touch controller." />
     <MESSAGE value="Minor changes to control flow, vents. Added the vignette effect on death." />
     <MESSAGE value="Added the Scene Change Managament system, supporting loging, exit level areas and level list resource. Updated the vignette animations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Scene Change Managament system, supporting loging, exit level areas and level list resource. Updated the vignette animations." />
+    <MESSAGE value="kinda broken commit, UI and scene configuration. Nothing works" />
+    <option name="LAST_COMMIT_MESSAGE" value="kinda broken commit, UI and scene configuration. Nothing works" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -1,0 +1,90 @@
+[gd_scene load_steps=15 format=3 uid="uid://c4x84b45p3ms8"]
+
+[ext_resource type="Script" path="res://Scripts/Torch.cs" id="1_bj0x4"]
+[ext_resource type="Texture2D" uid="uid://8pq1l1u833op" path="res://Assets/Sprites/firetorch_base.png" id="1_t6gjx"]
+[ext_resource type="Texture2D" uid="uid://de865e2mvwhwt" path="res://Assets/Sprites/fire_sprite_sheet.png" id="2_hin5l"]
+[ext_resource type="Texture2D" uid="uid://bynyfacrlui66" path="res://Assets/Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="3_6xeak"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ct78h"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_e8455"]
+offsets = PackedFloat32Array(0, 0.883281, 0.993691)
+colors = PackedColorArray(1, 0.988892, 0.289063, 1, 0.990513, 0.328992, 0.195691, 1, 0.99, 0.1782, 0.1782, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aeky1"]
+gradient = SubResource("Gradient_e8455")
+
+[sub_resource type="Curve" id="Curve_7gsax"]
+_data = [Vector2(0.00289855, 0.210556), 0.0, 0.216629, 0, 0, Vector2(0.53913, 0.395006), 1.19784, 1.19784, 0, 0, Vector2(1, 0.977866), 0.438862, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_tqan6"]
+_data = [Vector2(0.0057971, 0.1958), 0.0, 4.53544, 0, 0, Vector2(0.327536, 0.904086), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ap2ov"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_5f0wr"]
+curve_x = SubResource("Curve_7gsax")
+curve_y = SubResource("Curve_tqan6")
+curve_z = SubResource("Curve_ap2ov")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8swcq"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 0, 0)
+angle_min = -15.0
+angle_max = 15.0
+spread = 5.0
+flatness = 1.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+gravity = Vector3(0, -7, 0)
+scale_curve = SubResource("CurveXYZTexture_5f0wr")
+color_ramp = SubResource("GradientTexture1D_aeky1")
+anim_speed_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjxy7"]
+atlas = ExtResource("2_hin5l")
+region = Rect2(0, 0, 160, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y80k3"]
+radius = 5.09902
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_bj0x4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("1_t6gjx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ct78h")
+position = Vector2(0, -3)
+amount = 15
+amount_ratio = 0.5
+process_material = SubResource("ParticleProcessMaterial_8swcq")
+texture = SubResource("AtlasTexture_cjxy7")
+lifetime = 1.5
+speed_scale = 0.8
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.892334, 0.015625, 1)
+energy = 0.55
+range_z_max = 4096
+shadow_color = Color(0.27, 0.2457, 0.2457, 0)
+texture = ExtResource("3_6xeak")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_y80k3")

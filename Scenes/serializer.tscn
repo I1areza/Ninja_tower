@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://daqbi6fdm77iv"]
+
+[ext_resource type="Script" path="res://Serializer.cs" id="1_aqy47"]
+
+[node name="Serializer" type="Node"]
+script = ExtResource("1_aqy47")
